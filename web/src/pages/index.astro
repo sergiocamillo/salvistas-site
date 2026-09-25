@@ -8,6 +8,7 @@ import fotoGeral from '../assets/img/capitulo-geral-2026.jpg';
 import fotoServos from '../assets/img/capitulo-servos-2026.jpg';
 import fotoServas from '../assets/img/capitulo-servas-recorte.jpg';
 import icone from '../assets/img/icone-nossa-senhora-de-pentecostes.jpg';
+import peGilberto from '../assets/img/pe-gilberto.webp';
 import { getPosts, getConfiguracao } from '../lib/strapi';
 
 const posts = (await getPosts(3)).slice(0, 3);
@@ -77,11 +78,16 @@ const lugares = [
   <!-- 2 · quem somos -------------------------------------------------------- -->
   <section class="secao quem" id="quem-somos">
     <div class="wrap quem__grade">
-      <div class="revela">
+      <figure class="retrato" data-revela>
+        <div class="retrato__moldura">
+          <Picture src={peGilberto} formats={['avif', 'webp']} widths={[400, 640, 900]} sizes="(max-width: 860px) 80vw, 420px"
+            alt="Pe. Gilberto Maria Defina, fundador da Fraternidade Jesus Salvador, de mãos postas, com casula vermelha." />
+        </div>
+        <figcaption><strong>Pe. Gilberto Maria Defina, sjs</strong><span>Nosso Pai Fundador · 1925-2004</span></figcaption>
+      </figure>
+      <div class="quem__texto revela">
         <p class="rotulo">Quem somos</p>
         <h2>Tudo começou com uma conversa.</h2>
-      </div>
-      <div class="quem__texto revela">
         <p class="lede">
           Nos anos 90, o Pe. Gilberto Maria Defina ouviu muitos jovens dizerem que se sentiam “peixes fora d’água” na Igreja.
           Em 1993 ele fundou a Fraternidade Jesus Salvador para acolher esse chamado.
@@ -281,9 +287,21 @@ const lugares = [
   .hero__foto figcaption { margin-top: 14px; font-size: 0.85rem; color: var(--marrom-suave); text-align: center; }
 
   /* ---------- 2 quem somos ---------- */
-  .quem__grade { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
-  .quem h2 { margin-top: 18px; max-width: 12ch; }
-  .quem__texto { display: grid; gap: 22px; padding-top: 44px; }
+  .quem__grade { display: grid; grid-template-columns: minmax(0, 0.75fr) 1fr; gap: clamp(40px, 7vw, 120px); align-items: center; }
+  .quem h2 { max-width: 12ch; margin-bottom: 6px; }
+  .quem__texto { display: grid; gap: 22px; }
+  .quem__texto .rotulo { justify-self: start; }
+
+  .retrato { margin: 0; opacity: 0; transform: translateY(24px); transition: opacity 1.3s var(--ease-saida), transform 1.3s var(--ease-saida); }
+  .retrato.in { opacity: 1; transform: none; }
+  .retrato__moldura { position: relative; border-radius: 6px; isolation: isolate; }
+  .retrato__moldura::after {
+    content: ''; position: absolute; inset: 14px -14px -14px 14px; z-index: -1; border: 1px solid var(--ouro);
+    border-radius: 6px; opacity: 0.7;
+  }
+  .retrato__moldura :global(img) { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: 6px; }
+  .retrato figcaption { margin-top: 30px; display: flex; flex-direction: column; gap: 2px; font-size: 0.9rem; color: var(--marrom-suave); }
+  .retrato figcaption strong { font-family: var(--f-display); font-size: 1.25rem; font-weight: 600; color: var(--marrom); }
   .quem__texto p:not(.lede) { max-width: 58ch; }
   .quem__texto .link-seta { justify-self: start; }
   .numeros { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: clamp(64px, 8vw, 112px); border-top: 1px solid var(--linha); }
@@ -397,7 +415,7 @@ const lugares = [
   }
   @media (max-width: 860px) {
     .quem__grade, .onde__grade, .senhora__grade, .caminhos__grade { grid-template-columns: 1fr; }
-    .quem__texto { padding-top: 0; }
+    .retrato { max-width: 360px; }
     .senhora__icone { max-width: 380px; margin-inline: auto; }
     .noticias__grade { grid-template-columns: 1fr; }
   }
@@ -415,6 +433,7 @@ const lugares = [
     .hero__portas :global(img) { object-position: 50% 80%; }
   }
   @media (prefers-reduced-motion: reduce) {
+    .retrato { opacity: 1; transform: none; }
     .hero__raios path { stroke-dashoffset: 0; }
     .linha > span, .hero__rotulo, .hero__lede, .hero__acoes { transform: none; opacity: 1; }
     .hero__portas { clip-path: none; }

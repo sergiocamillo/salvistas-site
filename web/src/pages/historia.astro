@@ -1,9 +1,10 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Cabecalho from '../components/Cabecalho.astro';
 import selo from '../assets/img/selo-fjs.png';
 import brasao from '../assets/img/brasao-imsjs.png';
+import peGilberto from '../assets/img/pe-gilberto.webp';
 
 const linha = [
   { ano: '1925', t: 'Nasce Gilberto Maria Defina', d: 'Em 2 de agosto, em Ribeirão Preto (SP), numa família católica.' },
@@ -41,6 +42,10 @@ const linha = [
         <p class="rotulo">Nosso Pai Fundador</p>
         <h2>Pe. Gilberto Maria Defina, sjs</h2>
         <p class="fundador__datas">1925 · 2004</p>
+        <div class="fundador__foto">
+          <Picture src={peGilberto} formats={['avif', 'webp']} widths={[400, 640, 900]} sizes="(max-width: 860px) 80vw, 440px"
+            alt="Pe. Gilberto Maria Defina, fundador da Fraternidade Jesus Salvador, de mãos postas, com casula vermelha." />
+        </div>
       </div>
       <div class="fundador__texto revela">
         <p class="lede">Padre por 54 anos, professor, jornalista, pároco e fundador. Formado em Filosofia, Teologia, Letras e Direito.</p>
@@ -121,6 +126,10 @@ const linha = [
   .fundador__grade { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(40px, 7vw, 110px); }
   .fundador h2 { margin: 18px 0 12px; max-width: 12ch; }
   .fundador__datas { font-family: var(--f-inscricao); letter-spacing: 0.2em; color: var(--ouro-texto); }
+  .fundador__foto { position: relative; margin-top: 40px; max-width: 440px; isolation: isolate; }
+  .fundador__foto::after { content: ''; position: absolute; inset: 14px -14px -14px 14px; z-index: -1; border: 1px solid var(--ouro); border-radius: 6px; opacity: 0.7; }
+  .fundador__foto :global(img) { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: 6px; }
+  .fundador__grade { align-items: start; }
   .fundador__texto { display: grid; gap: 20px; }
   .fundador__texto p { max-width: 60ch; }
   .fundador blockquote { margin: 16px 0 0; padding-left: 22px; border-left: 2px solid var(--ouro); }
