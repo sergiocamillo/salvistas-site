@@ -5,7 +5,11 @@ Dois serviços no mesmo projeto, a partir do repositório `sergiocamillo/salvist
 | Serviço | Pasta (Root Directory) | O que é |
 |---|---|---|
 | **cms** | `/cms` | Strapi: painel, API, formulários, imagens |
-| **web** | `/web` | Site em Astro, gera as páginas a cada visita (cache de 60 s) |
+| **salvistas-site** | `/web` | Site em Astro, gera as páginas a cada visita (cache de 60 s) |
+
+Projeto `Salvistas` (d44a5493…). Em cada serviço: *Build Command* `npm run build`, *Start Command* `npm run start`,
+*Watch Paths* `/cms/**` ou `/web/**` (um serviço só refaz o deploy quando a sua pasta muda). O site tem *Healthcheck* em `/`.
+O Railway descontinuou o `railway.json`, então essas opções ficam nas configurações do serviço.
 
 Banco: PostgreSQL remoto (no próprio Railway ou em outro provedor).
 
