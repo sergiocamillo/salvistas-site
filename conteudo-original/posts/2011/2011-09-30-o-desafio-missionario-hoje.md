@@ -1,0 +1,36 @@
+---
+titulo: "O desafio missionário hoje"
+url: https://salvistas.com.br/o-desafio-missionario-hoje/
+data: 2011-09-30T13:58:49
+categorias: ['Salvistas']
+tags: 8
+imagem_destacada: 0
+palavras: 1171
+---
+
+# O desafio missionário hoje
+
+Por: Dom Orani João Tempesta, O. Cist.  
+Arcebispo Metropolitano de São Sebastião do Rio de Janeiro – RJ
+
+O mês de outubro, como mês temático, tem duas vertentes. De um lado as Missões, que marcam as reflexões em nossas comunidades. É também o mês do Rosário, de antiga tradição, convidando-nos a uma vida de oração contemplativa. Estes dois temas se completam, pois necessitamos de uma densa vida espiritual e de orações para vivermos testemunhando Jesus Ressuscitado e anunciando-O às pessoas do nosso tempo. Somos essencialmente missionários. Fixemo-nos hoje no tema das missões.
+
+A caminhada da Santa Igreja perpassa por várias correntes referenciais para levar aos fiéis a plena compreensão do Reino de Deus. Dentre as correntes que se adota no percurso da caminhada evangelizadora está a dimensão missionária.
+
+Na caminhada histórica do Filho de Deus, a Igreja Católica apresenta o mês de outubro como o mês das Missões. Neste ano apresenta-se com o tema “Missão na Ecologia”, que as Pontifícias Obras Missionárias (POM) realizam como a Campanha Missionária 2011. A temática, como nos anos precedentes, está diretamente ligada ao tema da Campanha da Fraternidade, iniciativa da Conferência Nacional dos Bispos do Brasil (CNBB), que este ano é “Fraternidade e a Vida no Planeta”. Sempre foi consenso que os vários temas durante o ano poderiam ser ligados ou inspirados no tema da Campanha da Fraternidade. Nesse sentido, a Semana Nacional da Vida, começando no início de outubro e culminando com o Dia do Nascituro, nos recorda que toda a nossa reflexão ecológica não teria sentido sem a preservação e o respeito à vida humana.
+
+Somos chamados também a refletir sobre o tema do dia Mundial das Missões, que a cada ano o Papa nos sugere. Neste ano, o Papa Bento XVI colocou como tema: “Assim como o Pai me enviou, também Eu vos envio a vós” (Jo, 20,21). Notamos, de certa forma, como essa preocupação missionária está no coração e na mente do nosso Papa. Basta recordar o tema que ele escolheu para a Jornada Mundial da Juventude do Rio de Janeiro: “Ide e fazei discípulos entre todas as nações”.
+
+A missão fundamental da Igreja é sempre de Anúncio da Palavra de Deus ecoada nos corações dos fiéis, testemunhada e vivida, que deve transparecer em toda a vida do povo de Deus. Todos nós nos tornamos seguidores e missionários a partir da Graça que de Deus recebemos através do santo Batismo, que nos impregna a ação do Espírito Santo. A partir do conhecimento da Graça de Deus, adotada no coração daqueles e daquelas que buscam a solidez da revelação divina em suas vidas, percebe-se a necessidade da missão. Também é missão da Igreja denunciar tudo que é contrário à Palavra de Deus, como por exemplo, as injustiças provocadas à luz de interesses particulares que desnorteiam a caminhada cristã. Dentro do contexto proposto para o mês das Missões no Brasil deste ano, a Igreja ressalta a ingente preocupação com a preservação do meio ambiente e conscientização ecológica.
+
+Ser missionário é antes de tudo um grande compromisso que o cristão adota em prol da realização do Reino de Deus, onde as criaturas por Ele criadas devem proclamar e dar testemunho da própria fé, levando ao conhecimento de todas as pessoas a Palavra de vida que cura, liberta e salva. Ser missionário é, em primeiro lugar, o ato de assumir a fé por inteiro, numa dinâmica viva de acolhimento à própria vocação.
+
+Nestes tempos de tantas dificuldades para a missão da Igreja, que sofre perseguições diversas pelo mundo, não é fácil “fazer discípulos”, não é simples estar presente na sociedade em que uma minoria preferiria que “se esquecesse de Deus”. Ao discernirmos os “sinais dos tempos”, sentimos como é necessário uma “nova evangelização” e a coragem de proclamar em quem nós cremos, e como são importantes para a sociedade os valores proclamados pelos missionários.
+
+Quando se ouve falar de missão ou em ser missionário, muitas vezes pensamos que para atuar como missionários precisamos ingressar em uma Ordem Religiosa e professarmos os votos para sermos enviados a uma terra distante e trabalharmos na evangelização dos irmãos. Há de se falar que de fato existe este tipo de trabalho missionário na vida da Igreja, principalmente de nossos irmãos que dão a sua vida no anúncio e no testemunho do Evangelho em lugares que Ele ainda não foi anunciado. Mas, em primeiro momento, a missão está de modo nato presente em todos nós batizados e devemos agir como verdadeiros missionários no ambiente em que vivemos, a começar pela nossa própria família e comunidade onde exercemos o nosso apostolado. Ser missionário faz parte do nosso ser cristão.
+
+Como já falado acima, o mês de outubro é dedicado pela Igreja como sendo o mês das Missões. Nesta oportunidade se fala muito sobre o trabalho missionário e a sua devida importância como forma de fortalecimento na fé e na caminhada. Não é um mês exclusivo de se fazer missões, mas é um momento de reforçar o trabalho e rezar e ajudar em prol do bom êxito do trabalho dos missionários que estão em missão em terras realmente distantes do país ou cidades de origens, e é, também, oportunidade de fazer com que a nossa missão diária possa surtir os efeitos necessários no coração de todos os fiéis, para que caminhem buscando sempre a proximidade com Deus, que é o Criador de tudo e de todos.
+
+O Catecismo da Igreja Católica nos exorta: “Tornados filhos de Deus pela regeneração batismal, os batizados são obrigados a professar diante dos homens a fé que pela Igreja receberam de Deus e a participar da atividade apostólica e missionária do povo de Deus” (cf. no. 1270).
+
+A missão de todos nós consiste no fato de que temos que abraçar toda a proposta de Deus feita a nós desde o momento pelo qual, movido Ele por um amor incondicional, nos deu a vida. Podemos viver a nossa missionariedade em terras distantes ou em nosso próprio habitat, aqui no dia-a-dia de nossa Arquidiocese, aonde muitos ainda precisam conhecer Jesus ou redescobri-Lo, sendo que este último deve sempre ser o motivador maior do nosso ardor missionário – de sair de nossas casas e ir ao encontro do irmão para levar a Boa Nova da Salvação. Nestes últimos meses, e também neste outubro missionário, tantas iniciativas missionárias perpassam as atividades de regiões, foranias e vicariatos de nossa Arquidiocese. Isso tudo realizado pelas paróquias como também por grupos, comunidades e consagrados. Santa Terezinha do Menino Jesus nunca saiu do Carmelo, no entanto foi uma grande missionária, movida pelas suas contínuas orações, seu espírito missionário que trazia como inquietação em seu coração e profundo amor a Deus. Seja também você um missionário de Jesus Cristo, particularmente neste tempo da Jornada Mundial da Juventude do Rio de Janeiro (agora com site oficial no ar, o concurso para a logomarca lançado e já inaugurada a sede do comitê organizador) e enquanto estamos unidos aos jovens que anunciam Cristo Jesus pelo nosso país, levando consigo o ícone de Nossa Senhora e a Cruz do Redentor!

@@ -1,0 +1,66 @@
+# Tags: 3415 no total
+
+- Tags usadas 1 vez ou menos: 2903
+
+## Top 60
+
+- notícias: 253
+- jesus: 192
+- igreja: 112
+- mundo: 99
+- geral: 85
+- santo-padre: 70
+- jornada-mundial: 69
+- brasil-: 64
+- jesus-cristo: 63
+- francisco: 54
+- nossa-senhora: 54
+- artigos: 47
+- bento: 46
+- cristo: 43
+- juventude: 40
+- comiss: 33
+- paulo: 31
+- conselho: 28
+- santo: 28
+- nacional: 27
+- episcopal: 25
+- leonardo-meira: 25
+- assembleia: 24
+- cnbb: 24
+- senhor: 24
+- comunica: 23
+- evangelho: 21
+- aparecida: 20
+- bispo-auxiliar: 20
+- universidade: 20
+- fraternidade: 19
+- leonardo-ulrich: 19
+- confer: 18
+- jornada: 18
+- pastor: 17
+- virgem-maria: 17
+- arquidiocese: 16
+- bispos: 16
+- pastoral: 16
+- santa: 16
+- palavra: 15
+- senhor-jesus: 15
+- congrega: 14
+- congresso: 14
+- janeiro-: 14
+- nova-evangeliza: 14
+- social: 14
+- campanha: 12
+- encontro: 12
+- israel: 12
+- maria: 12
+- arcebispo: 11
+- santa-maria: 11
+- semana: 11
+- brasileira: 10
+- evangeliza: 10
+- internacional: 10
+- leonardo: 10
+- orani: 10
+- pedro: 10

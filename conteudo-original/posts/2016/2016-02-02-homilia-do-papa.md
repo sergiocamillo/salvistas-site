@@ -1,0 +1,27 @@
+---
+titulo: "Homilia do Papa"
+url: https://salvistas.com.br/homilia-do-papa/
+data: 2016-02-02T16:10:18
+categorias: ['Mundo']
+tags: 0
+imagem_destacada: 2743
+palavras: 901
+---
+
+# Homilia do Papa
+
+Homilia do Papa no encerramento do Ano da Vida Consagrada
+
+Cidade do Vaticano (RV) – Publicamos, a seguir, a íntegra da homilia que o Papa Francisco pronunciou na Missa celebrada na Basílica Vaticana por ocasião da Festa da Apresentação do Senhor, no dia 2 de fevereiro, que encerrou o Ano da Vida Consagrada.
+
+Hoje, diante do nosso olhar, há um fato simples, humilde e grande: Jesus é levado por Maria e José ao templo de Jerusalém. É um menino como muitos, como todos, mas é único: é o Unigênito vindo para todos. Este Menino nos trouxe a misericórdia e a ternura de Deus: Jesus é a face da Misericórdia do Pai. Este é o ícone que o Evangelho nos oferece no final do Ano da Vida Consagrada, um ano vivido com tanto entusiasmo. Este, como um rio, agora conflui no mar da misericórdia, neste imenso mistério de amor que estamos vivendo com o Jubileu extraordinário.  
+A festa de hoje, sobretudo no Oriente, é chamada festa do encontro. Com efeito, no Evangelho que foi proclamado, vemos vários encontros (cfr Lc 2,22-40). No templo, Jesus vem a nosso encontro e nós vamos a seu encontro. Contemplamos o encontro com o velho Simeão, que representa a espera fiel de Israel e a exultação do coração para a realização das antigas promessas. Admiramos também o encontro com idosa profetisa Ana, que, ao ver o Menino, exulta de alegria e louva a Deus. Simeão e Ana são a espera e a profecia, Jesus é a novidade e a realização: Ele se apresenta a nós como a perene surpresa de Deus; neste Menino nascido para todos se encontram o passado, feito de memória e de promessa, e o futuro, repleto de esperança.  
+Podemos ver nisso o início da vida consagrada. Os consagrados e as consagradas são chamados, antes de tudo, a serem homens e mulheres do encontro. A vocação, de fato, não se inspira num nosso projeto pensado de “maneira estratégica”, mas numa graça do Senhor que nos alcança, através de um encontro que transforma a vida. Quem realmente encontra Jesus não pode permanecer como antes. Ele é a novidade que faz novas todas as coisas. Quem vive este encontro se torna testemunha e torna possível o encontro para os outros; e se faz também promotor da cultura do encontro, evitando a autorreferencialidade que nos faz permanecer fechados em nós mesmos.  
+O trecho da Carta aos Hebreus, que ouvimos, nos recorda que o próprio Jesus, para vir ao nosso encontro, não hesitou em compartilhar a nossa condição humana: «Visto que os filhos têm em comum a carne e o sangue, também Jesus participou da mesma condição» (v. 14). Jesus não nos salvou “de fora”, não permaneceu fora do nosso drama, mas quis compartilhar a nossa vida. Os consagrados e as consagradas são chamados a serem sinal concreto e profético desta proximidade de Deus, desta compartilha com a condição de fragilidade, de pecado e de feridas do homem do nosso tempo. Todas as formas de vida consagrada, cada uma segundo as suas características, são chamadas a estarem em estado permanente de missão, compartilhando «as alegrias e as esperanças, as tristezas e as angústias dos homens de hoje, dos pobres, sobretudo, e de todos os que sofrem» (Gaudium et spes, 1).  
+O Evangelho nos diz que «O pai e a mãe de Jesus estavam admirados com o que diziam a respeito dele» (v. 33). José e Maria custodiam a admiração por este encontro repleto de luz e de esperança para todos os povos. E também nós, como cristãos e como pessoas consagradas, somos custódios da admiração. Uma admiração que pede para nos renovarmos sempre; ai da rotina na vida espiritual; ai da cristalização dos nossos carismas numa doutrina abstrata: os carismas dos fundadores – como disse outras vezes – não devem ser sigilados numa garrafa, não são peças de museu. Os nossos fundadores foram movidos pelo Espírito e não tiveram medo de sujar as mãos com a vida cotidiana, com os problemas das pessoas, percorrendo com coragem as periferias geográficas e existenciais. Não se detiveram diante dos obstáculos e das incompreensões dos outros, porque mantiveram no coração a admiração pelo encontro com Cristo. Não domesticaram a graça do Evangelho; tiveram sempre no coração uma inquietação saudável pelo Senhor, um desejo ardente de levá-lo aos outros, como fizeram Maria e José no templo. Também nós somos chamados hoje a realizar escolhas proféticas e corajosas.  
+Por fim, com a festa de hoje aprendemos a viver a gratidão pelo encontro com Jesus e pelo dom da vocação à vida consagrada. Agradecer, ação de graças: Eucaristia. Como é belo quando encontramos o rosto feliz de pessoas consagradas, talvez já com idade avançada como Simeão ou Ana, contentes e cheios de gratidão pela própria vocação. Esta é uma palavra que pode sintetizar tudo aquilo que vivemos neste Ano da Vida Consagrada: gratidão pelo dom do Espírito Santo, que sempre anima a Igreja através dos diversos carismas.  
+O Evangelho se conclui com esta expressão: «O menino crescia, tornava-se robusto, enchia-se de sabedoria; e a graça de Deus estava com ele» (v. 40). Possa o Senhor Jesus, pela materna intercessão de Maria, crescer em nós, e aumentar em cada um o desejo do encontro, a custódia da admiração e a alegria da gratidão. Então outros se sentirão atraídos pela sua luz, e poderão encontrar a misericórdia do Pai.   
+—  
+(tradução livre do Programa Brasileiro)
+
+Fonte: http://br.radiovaticana.va/

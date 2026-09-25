@@ -1,0 +1,42 @@
+---
+titulo: "Justiça nega pedido do MPRJ contra a JMJ Rio2013"
+url: https://salvistas.com.br/justica-nega-pedido-do-mprj-contra-a-jmj-rio2013/
+data: 2013-07-12T23:19:05
+categorias: ['Salvistas']
+tags: 9
+imagem_destacada: 0
+palavras: 1303
+---
+
+# Justiça nega pedido do MPRJ contra a JMJ Rio2013
+
+A Justiça do Estado do Rio de Janeiro indeferiu o pedido do Ministério Público Estadual (MPRJ), que ameaçava a realização da Jornada Mundial da Juventude (JMJ) Rio2013. O MPRJ ajuizou uma ação civil pública para suspender imediatamente o edital de licitação publicado pelo município do Rio para contratação de serviços de saúde para a Jornada. A decisão judicial foi tomada em primeira instância na tarde desta quinta-feira, dia 11, pela juíza titular da 5ª Vara da Fazenda Pública da Comarca da Capital, Roseli Nalin. Ainda cabem recursos.
+
+Um dos motivos alegados pelo MPRJ para a suspensão seria a natureza do evento, considerada privada pelo órgão, sem levar em consideração o papel do Poder Público, de todas as esferas, de parceria na realização da Jornada. A prefeitura deve executar o serviço de atendimento médico pré-hospitalar fixo e móvel nos eventos a serem realizados em Copacabana e Guaratiba.
+
+Foi indeferido pela Justiça o pedido de antecipação dos efeitos da tutela formulado na ação civil pública movida pelo MPRJ. De acordo com a decisão proferida pela juíza nos autos da ação civil pública, o afastamento entre religião e estado não pode impedir o Administrador, fundado em razões de interesse público, custear determinados serviços que serão prestados aos participantes do evento, ainda que haja conotação religiosa. “A referida conduta não caracteriza qualquer desvio de finalidade, nem tampouco confusão entre Estado e Igreja, eis que assim agindo não estará o Poder Público agindo com base em elementos religiosos, nem tampouco utilizando-se de recursos públicos para beneficiar esta ou aquela religião”.
+
+Ao indeferir o pedido de antecipação dos efeitos da tutela, formulado pelo Ministério Público, a magistrada considerou que, neste caso, “deve ser prudente e agir com extrema cautela, eis que medida de natureza liminar como a que pretende o Autor (o MPRJ) pode gerar um cenário de absoluta insegurança e descrédito ao país, além de prejudicar milhares de pessoas que virão ao Rio de Janeiro para participar do evento com a certeza de que haverá serviços destinados a garantir sua saúde”.
+
+De acordo com a Diretora Setor Jurídico do Instituto Jornada Mundial da Juventude, Claudine Milione Dutra, a decisão já era esperada. “A decisão judicial era previsível e, sem dúvida, foi acertada. O descabido pedido do Ministério Público deixaria os participantes da JMJ perigosamente desassistidos e os prejuízos seriam irreversíveis”, destacou.
+
+Entenda o caso
+
+Na última terça-feira, 9, o MPRJ ajuizou a ação civil pública para suspender o edital de licitação publicado pelo município do Rio para contratação de serviços de saúde para a Jornada. Um dos motivos para a suspensão seria a natureza do evento, considerada privada pelo Ministério Público.
+
+Na quarta-feira, 10, o prefeito do Rio de Janeiro, Eduardo Paes, se pronunciou a respeito reafirmando a disponibilidade do Governo Municipal em garantir todos os serviços públicos necessários para atender bem os milhares de peregrinos e participantes que já começaram a chegar à cidade para a JMJ.
+
+O Instituto Jornada Mundial da Juventude lançou uma nota oficial em que se disse certo de que “o Poder Judiciário decidirá a questão atendendo a todos os anseios da sociedade, e que, apesar de tais obstáculos, a JMJ Rio2013 será um sucesso”.
+
+Nas redes sociais e nos comentários do site da Jornada, muitas pessoas se manifestaram contra a atitude do Ministério Público. “Ela (a JMJ) vai acontecer do mesmo jeito! São milhões de jovens do mundo inteiro que vamos estar lá… Pobres, ricos, pretos, brancos… Haverá professores, advogados, empresários, operários, agricultores e pescadores entre nós. Haverá também médicos, enfermeiros e eles não nos deixarão morrer (se eu não me engano, era pra saúde a verba… Era isso mesmo?). Aliás, nós não temos medo de morrer. Sonhamos mesmo com o Paraíso, com o Céu (lugar mais justo que esse não pode haver)”, afirmou o jovem paraense Juscelio Mauro Pantoja, em seu perfil no Facebook e que se espalhou pela rede social.
+
+Justiça nega pedido do MPRJ contra a JMJ Rio2013SEX, 12 DE JULHO DE 2013 14:52POR: CNBB/JMJ RIO2013   A Justiça do Estado do Rio de Janeiro indeferiu o pedido do Ministério Público Estadual (MPRJ), que ameaçava a realização da Jornada Mundial da Juventude (JMJ) Rio2013. O MPRJ ajuizou uma ação civil pública para suspender imediatamente o edital de licitação publicado pelo município do Rio para contratação de serviços de saúde para a Jornada. A decisão judicial foi tomada em primeira instância na tarde desta quinta-feira, dia 11, pela juíza titular da 5ª Vara da Fazenda Pública da Comarca da Capital, Roseli Nalin. Ainda cabem recursos.  
+Um dos motivos alegados pelo MPRJ para a suspensão seria a natureza do evento, considerada privada pelo órgão, sem levar em consideração o papel do Poder Público, de todas as esferas, de parceria na realização da Jornada. A prefeitura deve executar o serviço de atendimento médico pré-hospitalar fixo e móvel nos eventos a serem realizados em Copacabana e Guaratiba.  
+Foi indeferido pela Justiça o pedido de antecipação dos efeitos da tutela formulado na ação civil pública movida pelo MPRJ. De acordo com a decisão proferida pela juíza nos autos da ação civil pública, o afastamento entre religião e estado não pode impedir o Administrador, fundado em razões de interesse público, custear determinados serviços que serão prestados aos participantes do evento, ainda que haja conotação religiosa. “A referida conduta não caracteriza qualquer desvio de finalidade, nem tampouco confusão entre Estado e Igreja, eis que assim agindo não estará o Poder Público agindo com base em elementos religiosos, nem tampouco utilizando-se de recursos públicos para beneficiar esta ou aquela religião”.  
+Ao indeferir o pedido de antecipação dos efeitos da tutela, formulado pelo Ministério Público, a magistrada considerou que, neste caso, “deve ser prudente e agir com extrema cautela, eis que medida de natureza liminar como a que pretende o Autor (o MPRJ) pode gerar um cenário de absoluta insegurança e descrédito ao país, além de prejudicar milhares de pessoas que virão ao Rio de Janeiro para participar do evento com a certeza de que haverá serviços destinados a garantir sua saúde”.  
+De acordo com a Diretora Setor Jurídico do Instituto Jornada Mundial da Juventude, Claudine Milione Dutra, a decisão já era esperada. “A decisão judicial era previsível e, sem dúvida, foi acertada. O descabido pedido do Ministério Público deixaria os participantes da JMJ perigosamente desassistidos e os prejuízos seriam irreversíveis”, destacou.  
+Entenda o caso  
+Na última terça-feira, 9, o MPRJ ajuizou a ação civil pública para suspender o edital de licitação publicado pelo município do Rio para contratação de serviços de saúde para a Jornada. Um dos motivos para a suspensão seria a natureza do evento, considerada privada pelo Ministério Público.  
+Na quarta-feira, 10, o prefeito do Rio de Janeiro, Eduardo Paes, se pronunciou a respeito reafirmando a disponibilidade do Governo Municipal em garantir todos os serviços públicos necessários para atender bem os milhares de peregrinos e participantes que já começaram a chegar à cidade para a JMJ.  
+O Instituto Jornada Mundial da Juventude lançou uma nota oficial em que se disse certo de que “o Poder Judiciário decidirá a questão atendendo a todos os anseios da sociedade, e que, apesar de tais obstáculos, a JMJ Rio2013 será um sucesso”.  
+Nas redes sociais e nos comentários do site da Jornada, muitas pessoas se manifestaram contra a atitude do Ministério Público. “Ela (a JMJ) vai acontecer do mesmo jeito! São milhões de jovens do mundo inteiro que vamos estar lá… Pobres, ricos, pretos, brancos… Haverá professores, advogados, empresários, operários, agricultores e pescadores entre nós. Haverá também médicos, enfermeiros e eles não nos deixarão morrer (se eu não me engano, era pra saúde a verba… Era isso mesmo?). Aliás, nós não temos medo de morrer. Sonhamos mesmo com o Paraíso, com o Céu (lugar mais justo que esse não pode haver)”, afirmou o jovem paraense Juscelio Mauro Pantoja, em seu perfil no Facebook e que se espalhou pela rede social.

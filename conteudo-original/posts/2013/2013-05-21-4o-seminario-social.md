@@ -1,0 +1,33 @@
+---
+titulo: "4º Seminário Social"
+url: https://salvistas.com.br/4o-seminario-social/
+data: 2013-05-21T11:27:35
+categorias: ['Notícias']
+tags: 13
+imagem_destacada: 0
+palavras: 1031
+---
+
+# 4º Seminário Social
+
+Por: cnbb.org.br
+
+4º Seminário Social propõe discussão sobre “o Estado que temos para o Estado que queremos”
+
+De 20 a 22 de maio é realizado no Centro Cultural de Brasília (CCB), o 4ª Seminário de preparação para a 5ª Semana Social Brasileira que acontecerá em todo o país, no período de 2 a 5 de setembro de 2013 e, traz como tema “Estado para quê e Estado para quem?”. O seminário é uma promoção da Comissão Episcopal Pastoral para o Serviço da Caridade, da Justiça e da Paz da CNBB e reúne representantes dos Regionais, movimentos sociais, entidades ecumênicas e grupos tradicionais como os indígenas e quilombolas.
+
+O 4º Seminário está organizado em diferentes eixos de trabalho, além de momentos de espiritualidade, estudos e partilha. Contará com dois painéis, um tratando do “Estado Brasileiro: avanços, limites e desafios”, com a assessoria do sociólogo, Pedro Ribeiro de Oliveira e, outro sobre “A construção do Estado do bem viver”, com o teólogo, Paulo Suess. O evento conta ainda com a participação dos assessores da Comissão para o Serviço da Caridade da CNBB, Pe. Ari Antônio dos Reis e Pe. Nelito Nonato Dornelas.
+
+Dom Guilherme Antônio Werlang, presidente da Comissão Episcopal Pastoral para o Serviço da Caridade, da Justiça e da Paz da CNBB, explica que o seminário tem sua importância por reunir a participação “de outras igrejas, dos movimentos sociais, dos sindicatos e das forças vivas da sociedade que querem de fato discutir o Estado Brasileiro”. Setores da Juventude, como PJ, JUFRA, JOC, PJE e PJMP, participam do encontro onde terão um espaço para relatar as atividades do movimento dentro do contexto social. Vale destacar que em setembro, a 5ª Semana Social Brasileira pretende reunir mais de 250 pessoas que estão engajadas neste trabalho, que virão de diferentes partes do país, como católicos, evangélicos, membros de organismos sociais não vinculados a nenhuma igreja, do sindicalismo brasileiro, entre outros interessados.
+
+“Estado que queremos”
+
+Sobre o tema da 5ª Semana Social que é uma iniciativa CNBB com toda a sociedade Brasileira, dom Guilherme recorda que essa é uma preocupação, bem anterior da Igreja, em fomentar a reflexão de um Estado para todos, principalmente para os menos favorecidos socialmente. “O Estado está a serviço muito de interesses particulares e ainda não é um Estado para todos os brasileiros”. De acordo com o bispo, a temática vem sendo discutida a mais de um ano e meio, tratando especificamente da realidade do Estado Brasileiro. Em 2010, a Comissão Episcopal propôs aos bispos na Assembleia Geral, o tema “Estado para quê e Estado para quem”, e houve um acolhimento.
+
+Os grupos envolvidos pretendem lançar a discussão para a sociedade “do Estado que temos para o Estado que queremos”, a partir das construções coletivas dos movimentos sociais e outras articulações, bem como gestos concretos que poderão ser assumidos nacionalmente. “Não podemos estar presos ao dinheiro. Hoje a humanidade está sendo vitime do sistema econômico mundial e, aqui no Brasil, o Estado muito vezes serve a interesses de organismos e organizações particulares, como as multinacionais, em detrimento a atenção às necessidades do povo brasileiro”, destacou dom Guilherme.
+
+4º Seminário Social propõe discussão sobre “o Estado que temos para o Estado que queremos”   De 20 a 22 de maio é realizado no Centro Cultural de Brasília (CCB), o 4ª Seminário de preparação para a 5ª Semana Social Brasileira que acontecerá em todo o país, no período de 2 a 5 de setembro de 2013 e, traz como tema “Estado para quê e Estado para quem?”. O seminário é uma promoção da Comissão Episcopal Pastoral para o Serviço da Caridade, da Justiça e da Paz da CNBB e reúne representantes dos Regionais, movimentos sociais, entidades ecumênicas e grupos tradicionais como os indígenas e quilombolas.  
+O 4º Seminário está organizado em diferentes eixos de trabalho, além de momentos de espiritualidade, estudos e partilha. Contará com dois painéis, um tratando do “Estado Brasileiro: avanços, limites e desafios”, com a assessoria do sociólogo, Pedro Ribeiro de Oliveira e, outro sobre “A construção do Estado do bem viver”, com o teólogo, Paulo Suess. O evento conta ainda com a participação dos assessores da Comissão para o Serviço da Caridade da CNBB, Pe. Ari Antônio dos Reis e Pe. Nelito Nonato Dornelas.  
+Dom Guilherme Antônio Werlang, presidente da Comissão Episcopal Pastoral para o Serviço da Caridade, da Justiça e da Paz da CNBB, explica que o seminário tem sua importância por reunir a participação “de outras igrejas, dos movimentos sociais, dos sindicatos e das forças vivas da sociedade que querem de fato discutir o Estado Brasileiro”. Setores da Juventude, como PJ, JUFRA, JOC, PJE e PJMP, participam do encontro onde terão um espaço para relatar as atividades do movimento dentro do contexto social. Vale destacar que em setembro, a 5ª Semana Social Brasileira pretende reunir mais de 250 pessoas que estão engajadas neste trabalho, que virão de diferentes partes do país, como católicos, evangélicos, membros de organismos sociais não vinculados a nenhuma igreja, do sindicalismo brasileiro, entre outros interessados.  
+“Estado que queremos”Sobre o tema da 5ª Semana Social que é uma iniciativa CNBB com toda a sociedade Brasileira, dom Guilherme recorda que essa é uma preocupação, bem anterior da Igreja, em fomentar a reflexão de um Estado para todos, principalmente para os menos favorecidos socialmente. “O Estado está a serviço muito de interesses particulares e ainda não é um Estado para todos os brasileiros”. De acordo com o bispo, a temática vem sendo discutida a mais de um ano e meio, tratando especificamente da realidade do Estado Brasileiro. Em 2010, a Comissão Episcopal propôs aos bispos na Assembleia Geral, o tema “Estado para quê e Estado para quem”, e houve um acolhimento.  
+Os grupos envolvidos pretendem lançar a discussão para a sociedade “do Estado que temos para o Estado que queremos”, a partir das construções coletivas dos movimentos sociais e outras articulações, bem como gestos concretos que poderão ser assumidos nacionalmente. “Não podemos estar presos ao dinheiro. Hoje a humanidade está sendo vitime do sistema econômico mundial e, aqui no Brasil, o Estado muito vezes serve a interesses de organismos e organizações particulares, como as multinacionais, em detrimento a atenção às necessidades do povo brasileiro”, destacou dom Guilherme.

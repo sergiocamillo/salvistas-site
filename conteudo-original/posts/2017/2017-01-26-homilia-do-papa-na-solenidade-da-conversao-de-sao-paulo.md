@@ -1,0 +1,34 @@
+---
+titulo: "Homilia do Papa na Solenidade da Conversão de São Paulo"
+url: https://salvistas.com.br/homilia-do-papa-na-solenidade-da-conversao-de-sao-paulo/
+data: 2017-01-26T10:26:51
+categorias: ['Artigos']
+tags: 0
+imagem_destacada: 2885
+palavras: 1104
+---
+
+# Homilia do Papa na Solenidade da Conversão de São Paulo
+
+Celebração das Segundas Vésperas da Solenidade da Conversão de São Paulo Apóstolo  
+Conclusão da Semana de Oração pela Unidade dos Cristãos
+
+Boletim da Santa Sé
+
+O encontro com Jesus na estrada para Damasco transforma radicalmente a vida de São Paulo. A partir de então, para ele, o sentido da existência já não está em confiar nas próprias forças para observar escrupulosamente a Lei, mas em aderir com todo o seu ser ao amor gratuito e imerecido de Deus, a Jesus Cristo crucificado e ressuscitado. Conhece, assim, a irrupção duma vida nova, a vida segundo o Espírito, na qual, pelo poder do Senhor ressuscitado, experimenta perdão, confidência e conforto. E Paulo não pode guardar para si mesmo esta novidade: é impelido pela graça a proclamar a feliz notícia do amor e da reconciliação que Deus oferece plenamente em Cristo à humanidade.
+
+Para o Apóstolo dos Gentios, a reconciliação do homem com Deus, da qual foi feito embaixador (cf. 2 Cor 5, 20), é um dom que vem de Cristo. Vê-se isto claramente no texto da II Carta aos Coríntios, onde se foi buscar, este ano, o tema da Semana de Oração pela Unidade dos Cristãos: «O amor de Cristo impele-nos para a reconciliação» (cf. 2 Cor 5, 14-20). «O amor de Cristo»: não se trata do nosso amor por Cristo, mas do amor que Cristo tem por nós. Da mesma forma, a reconciliação para a qual somos impelidos não é simplesmente iniciativa nossa: é primariamente a reconciliação que Deus nos oferece em Cristo. Antes de ser esforço humano de crentes que procuram superar as suas divisões, é um dom gratuito de Deus. Como resultado deste dom, a pessoa perdoada e amada é chamada, por sua vez, a proclamar o evangelho da reconciliação em palavras e obras, a viver e dar testemunho duma existência reconciliada.
+
+Nesta perspetiva, podemos hoje perguntar-nos: Como é possível proclamar este evangelho de reconciliação depois de séculos de divisões? O próprio Paulo nos ajuda a encontrar o caminho. Ele sublinha que a reconciliação em Cristo não se pode realizar sem sacrifício. Jesus deu a sua vida, morrendo por todos. De modo semelhante os embaixadores de reconciliação, em seu nome, são chamados a dar a vida, a não viver mais para si mesmos, mas para Aquele que morreu e ressuscitou por eles (cf. 2 Cor 5, 14-15). Como ensina Jesus, só quando perdemos a vida por amor d’Ele é que verdadeiramente a temos ganha (cf. Lc 9, 24). É a revolução que Paulo viveu, mas é também a revolução cristã de sempre: deixar de viver para nós mesmos, buscando os nossos interesses e promoção da nossa imagem, mas reproduzir a imagem de Cristo, vivendo para Ele e de acordo com Ele, com o seu amor e no seu amor.
+
+Para a Igreja, para cada Confissão Cristã, é um convite a não se basear em programas, cálculos e benefícios, a não se abandonar a oportunidades e modas passageiras, mas a procurar o caminho com o olhar sempre fixo na cruz do Senhor: lá está o nosso programa de vida. É um convite também a sair de todo o isolamento, a superar a tentação da autorreferência, que impede de individuar aquilo que o Espírito Santo realiza fora do nosso próprio espaço. Poderá realizar-se uma autêntica reconciliação entre os cristãos, quando soubermos reconhecer os dons uns dos outros e formos capazes, com humildade e docilidade, de aprender uns dos outros, sem esperar que primeiro sejam os outros a aprender de nós.
+
+Se vivermos este morrer para nós mesmos por amor de Jesus, o nosso estilo velho de vida é relegado para o passado e, como aconteceu a São Paulo, entramos numa nova forma de existência e comunhão. Com Paulo, poderemos dizer: «O que era antigo passou» (2 Cor 5, 17). Olhar para trás é útil e muito necessário para purificar a memória, mas fixar-se no passado, delongando-se a lembrar as injustiças sofridas e cometidas e julgando com parâmetros apenas humanos, pode paralisar e impedir de viver o presente. A Palavra de Deus encoraja-nos a tirar força da memória, a recordar o bem recebido do Senhor; mas pede-nos também que deixemos o passado para trás a fim de seguir Jesus no presente e, n’Ele, viver uma vida nova. Àquele que renova todas as coisas (cf. Ap 21, 5), consintamos-Lhe de nos orientar para um futuro novo, aberto à esperança que não desilude, um futuro onde será possível superar as divisões e os crentes, renovados no amor, encontrar-se-ão plena e visivelmente unidos.
+
+Enquanto avançamos pelo caminho da unidade, recordamos este ano de modo particular o quinto centenário da Reforma Protestante. O facto de católicos e luteranos poderem hoje recordar, juntos, um evento que dividiu os cristãos e de o fazerem com a esperança posta sobretudo em Jesus e na sua obra de reconciliação, constitui um marco significativo, alcançado – graças a Deus e à oração – através de cinquenta anos de mútuo conhecimento e de diálogo ecumênico.
+
+Implorando de Deus o dom da reconciliação com Ele e entre nós, dirijo as minhas cordiais e fraternas saudações à Sua Eminência o Metropolita Gennadios, representante do Patriarcado Ecumênico, a Sua Graça David Moxon, representante pessoal em Roma do Arcebispo de Cantuária, e a todos os representantes das diversas Igrejas e Comunidades eclesiais aqui reunidos. Saúdo com particular alegria os membros da Comissão Mista para o Diálogo Teológico entre a Igreja Católica e as Igrejas Ortodoxas Orientais, a quem desejo um fecundo trabalho na Sessão Plenária que se desenrola nestes dias. Saúdo também os alunos do Instituto Ecumênico de Bossey, que visitam Roma para aprofundar o seu conhecimento da Igreja Católica, e os jovens ortodoxos e todos os ortodoxos orientais que estudam em Roma, graças às bolsas de estudo do Comitê de Colaboração Cultural com as Igrejas Ortodoxas, sediado no Conselho Pontifício para a Promoção da Unidade dos Cristãos. Aos Superiores e a todos os Colaboradores deste Dicastério, exprimo a minha estima e gratidão.
+
+Amados irmãos e irmãs, a nossa oração pela unidade dos cristãos é participação na oração que Jesus dirigiu ao Pai, antes da Paixão, “para que todos sejam um só” (Jo 17, 21). Nunca nos cansemos de pedir a Deus este dom. Na expectativa paciente e confiada de que o Pai conceda a todos os crentes o bem da plena comunhão visível, prossigamos o nosso caminho de reconciliação e diálogo, encorajados pelo testemunho heroico de tantos irmãos e irmãs, de ontem e de hoje, unidos no sofrimento pelo nome de Jesus. Aproveitemos todas as oportunidades que a Providência nos oferece para rezar juntos, anunciar juntos, amar e servir juntos sobretudo quem é mais pobre e negligenciado.
+
+fonte: http://noticias.cancaonova.com/
