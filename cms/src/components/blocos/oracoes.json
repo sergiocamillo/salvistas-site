@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocos_oracoes",
+  "info": {
+    "displayName": "Orações",
+    "icon": "heart"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "oracoes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::oracao.oracao"
+    }
+  }
+}

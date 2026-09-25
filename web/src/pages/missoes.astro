@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+import { getMissoes, type Missao } from '../lib/strapi';
+
+const missoes = await getMissoes();
+
+const PAISES: { id: Missao['pais']; nome: string; frase: string }[] = [
+  { id: 'brasil', nome: 'Brasil', frase: 'Onde nascemos, na Zona Sul de São Paulo, e de onde partimos para o Centro-Oeste e o Norte.' },
+  { id: 'portugal', nome: 'Portugal', frase: 'Paróquias e centros sociais na Diocese de Coimbra.' },
+  { id: 'italia', nome: 'Itália', frase: 'Na Calábria, a convite da Diocese de Lamezia Terme.' },
+  { id: 'franca', nome: 'França', frase: 'Nossa primeira missão na Europa, na costa do Mediterrâneo.' },
+];
+const TIPO: Record<string, string> = {
+  paroquia: 'Paróquia', santuario: 'Santuário', 'casa-de-formacao': 'Formação', 'casa-apostolica': 'Casa apostólica', 'obra-social': 'Obra social', outra: 'Missão',
+};
+const grupos = PAISES.map((p) => ({ ...p, itens: missoes.filter((m) => m.pais === p.id) }));
+const bororo = missoes.find((m) => m.tipo === 'obra-social');
+---
+
+<Base title="Missões" description="Paróquias, casas de formação e obras sociais da Fraternidade Jesus Salvador no Brasil, Portugal, Itália e França.">
+  <Cabecalho rotulo="Missões" titulo="Onde a Igreja nos chama, <em>nós vamos.</em>" lede="Desde o ano 2000, os salvistas assumem paróquias e obras onde os bispos nos convidam. Hoje estamos em quatro países." />
+
+  {bororo && (
+    <section class="wrap destaque revela">
+      <p class="rotulo">Obra social</p>
+      <h2>{bororo.nome}</h2>
+      <p class="lede">{bororo.resumo}</p>
+      <p class="destaque__onde">{bororo.cidade} · desde {bororo.inicio}</p>
+    </section>
+  )}
+
+  {missoes.length === 0 ? (
+    <section class="wrap secao vazio">
+      <p class="lede">Estamos atualizando a lista das nossas missões depois do V Capítulo Geral. Em breve, cada paróquia e casa aparece aqui.</p>
+      <ul>{PAISES.map((p) => <li><strong>{p.nome}</strong> · {p.frase}</li>)}</ul>
+    </section>
+  ) : (
+    grupos.filter((g) => g.itens.length).map((g) => (
+      <section class="secao pais" id={g.id}>
+        <div class="wrap pais__grade">
+          <header class="pais__cabeca revela">
+            <h2>{g.nome}</h2>
+            <p>{g.frase}</p>
+            <p class="pais__conta">{g.itens.length} {g.itens.length === 1 ? 'missão' : 'missões'}</p>
+          </header>
+          <ul class="pais__lista revela">
+            {g.itens.map((m) => (
+              <li>
+                <span class="pais__tipo">{TIPO[m.tipo] ?? 'Missão'}</span>
+                <h3>{m.nome}</h3>
+                <p class="pais__onde">{[m.cidade, m.estado].filter(Boolean).join(' · ')}{m.diocese && <><br />{m.diocese}</>}</p>
+                {m.inicio && <p class="pais__desde">Desde {m.inicio}</p>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    ))
+  )}
+</Base>
+
+<style>
+  .destaque { background: var(--noite); color: var(--creme); border-radius: 12px; padding: clamp(36px, 6vw, 72px); display: flex; flex-direction: column; gap: 16px; }
+  .destaque .rotulo { color: var(--ouro-claro); }
+  .destaque .lede { color: rgba(244, 237, 225, 0.85); max-width: 40ch; }
+  .destaque__onde { font-size: 0.9rem; color: rgba(244, 237, 225, 0.66); }
+  .vazio ul { margin-top: 32px; padding-left: 1.2em; display: grid; gap: 10px; }
+
+  .pais + .pais { border-top: 1px solid var(--linha); }
+  .pais__grade { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .pais__cabeca { position: sticky; top: 110px; display: flex; flex-direction: column; gap: 14px; }
+  .pais__cabeca h2 { font-size: clamp(2.6rem, 2rem + 3vw, 4.4rem); }
+  .pais__cabeca p { color: var(--marrom-2); max-width: 34ch; }
+  .pais__conta { font-family: var(--f-inscricao); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ouro-texto) !important; }
+  .pais__lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--linha); border: 1px solid var(--linha); border-radius: 10px; overflow: hidden; }
+  .pais__lista li { background: var(--creme); padding: 26px 24px; display: flex; flex-direction: column; gap: 8px; }
+  .pais__tipo { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--carmim); font-weight: 600; }
+  .pais__lista h3 { font-size: 1.45rem; }
+  .pais__onde { font-size: 0.92rem; color: var(--marrom-2); }
+  .pais__desde { font-size: 0.82rem; color: var(--marrom-suave); margin-top: auto; padding-top: 8px; }
+
+  @media (max-width: 860px) {
+    .pais__grade { grid-template-columns: 1fr; }
+    .pais__cabeca { position: static; }
+  }
+  @media (max-width: 560px) { .pais__lista { grid-template-columns: 1fr; } }
+</style>

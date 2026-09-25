@@ -1,0 +1,21 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Cabecalho from '../../../components/Cabecalho.astro';
+import ListaNoticias from '../../../components/ListaNoticias.astro';
+import { getPosts, getCategorias, type Categoria, type Post } from '../../../lib/strapi';
+
+export async function getStaticPaths() {
+  const [posts, categorias] = await Promise.all([getPosts(), getCategorias()]);
+  return categorias.map((c) => ({
+    params: { slug: c.slug },
+    props: { categoria: c, categorias, posts: posts.filter((p) => p.categoria?.slug === c.slug) },
+  }));
+}
+
+const { categoria, categorias, posts } = Astro.props as { categoria: Categoria; categorias: Categoria[]; posts: Post[] };
+---
+
+<Base title={categoria.nome} description={categoria.descricao ?? undefined}>
+  <Cabecalho rotulo="Notícias" titulo={categoria.nome} lede={categoria.descricao ?? undefined} />
+  <ListaNoticias posts={posts} categorias={categorias} ativa={categoria.slug} />
+</Base>

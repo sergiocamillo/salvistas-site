@@ -1,0 +1,155 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+import Formulario from '../components/Formulario.astro';
+import Fio from '../components/Fio.astro';
+import fotoServos from '../assets/img/capitulo-servos-2026.jpg';
+import fotoServas from '../assets/img/capitulo-servas-recorte.jpg';
+
+const etapas = [
+  { nome: 'Aspirantado', texto: 'Os primeiros passos: conhecer a comunidade de perto e rezar o chamado.' },
+  { nome: 'Postulantado', texto: 'Vida em comunidade no seminário, estudo e oração, com um mestre que acompanha.' },
+  { nome: 'Noviciado', texto: 'Um tempo forte de oração e de mergulho no carisma do louvor.' },
+  { nome: 'Votos temporários', texto: 'A primeira consagração pública, com os estudos de filosofia e teologia.' },
+  { nome: 'Votos perpétuos', texto: 'A entrega para sempre. Para alguns, o caminho segue até o diaconato e o sacerdócio.' },
+];
+---
+
+<Base title="Vocação" description="Sente que Deus está chamando você? Conheça os caminhos da família salvista e converse com um formador.">
+  <Cabecalho rotulo="Vocação" titulo="Sente que Deus está <em>chamando você?</em>" lede="Conte pra gente. Um formador conversa com você no seu tempo, sem pressa e sem compromisso.">
+    <a class="btn btn--carmim" href="#conversar">Quero conversar <span class="seta" aria-hidden="true">→</span></a>
+  </Cabecalho>
+
+  <section class="secao ramo" id="servos">
+    <div class="wrap ramo__grade">
+      <div class="ramo__foto" data-revela>
+        <Picture src={fotoServos} formats={['avif', 'webp']} widths={[700, 1200]} sizes="(max-width: 860px) 100vw, 55vw" alt="Padres e irmãos salvistas no V Capítulo Geral, 2026." />
+      </div>
+      <div class="ramo__texto revela">
+        <p class="rotulo">Para homens</p>
+        <h2>Servos de Jesus Salvador</h2>
+        <p class="lede">Padres e irmãos consagrados que vivem em comunidade e levam o louvor de Deus às paróquias, no Brasil e na Europa.</p>
+        <p>
+          O Instituto forma irmãos e sacerdotes que desejam viver uma espiritualidade carismática: abertos aos dons que Deus concede,
+          pregando com a unção do Espírito Santo, fazendo o bem, curando e libertando o povo de tantas formas de escravidão.
+        </p>
+        <p class="ramo__nota">Instituto Religioso Clerical de Direito Diocesano, reconhecido pela Diocese de Santo Amaro.</p>
+      </div>
+    </div>
+
+    <div class="wrap etapas revela">
+      <h3>O caminho da formação</h3>
+      <ol>
+        {etapas.map((e, i) => (
+          <li><span class="etapas__n">{i + 1}</span><h4>{e.nome}</h4><p>{e.texto}</p></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="secao ramo ramo--invertido" id="servas">
+    <div class="wrap ramo__grade">
+      <div class="ramo__foto" data-revela>
+        <Picture src={fotoServas} formats={['avif', 'webp']} widths={[700, 1200]} sizes="(max-width: 860px) 100vw, 55vw" alt="Irmãs salvistas no V Capítulo Geral, 2026." />
+      </div>
+      <div class="ramo__texto revela">
+        <p class="rotulo">Para mulheres</p>
+        <h2>Servas de Jesus Salvador</h2>
+        <p class="lede">Irmãs consagradas, cheias do Espírito Santo, formadas para a oração e para a missão.</p>
+        <p>
+          As Servas vivem o mesmo carisma do louvor, com sua casa principal de formação no Jardim Lucélia, em São Paulo,
+          e missões que já chegaram à Europa.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Fio />
+
+  <section class="secao leigos">
+    <div class="wrap leigos__grade">
+      <article id="leigos" class="revela">
+        <p class="rotulo">Para leigos</p>
+        <h2>Servos Evangelizadores do Reino</h2>
+        <p>
+          A Ordem Terceira salvista (S.E.R.) é para homens e mulheres, solteiros ou casados, que querem uma vida espiritual mais profunda
+          sem deixar a casa e o trabalho. Dedicam parte do seu tempo à pastoral e partilham o carisma do louvor.
+        </p>
+        <p class="leigos__citacao">“Que o louvor de Deus cresça em nós sem cessar.”</p>
+      </article>
+      <article id="juventude" class="revela">
+        <p class="rotulo">Para jovens</p>
+        <h2>Juventude Salvista</h2>
+        <p>
+          Uma juventude de louvor, carismática e missionária. Evangeliza pela cultura dos jovens: música, teatro, esporte, retiros,
+          acampamentos e muita amizade, com três colunas: a Eucaristia, o Espírito Santo e Nossa Senhora de Pentecostes.
+        </p>
+        <p class="leigos__citacao">“Cada batizado, um missionário.”</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="secao conversar" id="conversar">
+    <div class="wrap conversar__grade">
+      <div class="revela">
+        <p class="rotulo">Conversar</p>
+        <h2>O primeiro passo é uma conversa.</h2>
+        <p class="lede">Escreva do seu jeito: quem você é, onde mora e o que está sentindo. Um formador responde pessoalmente.</p>
+      </div>
+      <Formulario
+        id="form-vocacao"
+        opcoes={[
+          { valor: 'vocacional-masculino', rotulo: 'Quero conhecer a vida de padre ou irmão' },
+          { valor: 'vocacional-feminino', rotulo: 'Quero conhecer a vida de irmã' },
+          { valor: 'leigos', rotulo: 'Quero ser leigo consagrado (S.E.R.)' },
+          { valor: 'juventude', rotulo: 'Quero participar da Juventude Salvista' },
+        ]}
+        rotuloOpcoes="O que você quer conhecer?"
+        pedirTelefone
+        pedirCidade
+        rotuloMensagem="Conte um pouco sobre você"
+        botao="Enviar"
+        sucesso="Recebemos sua mensagem. Um formador vai entrar em contato com você. Deus te abençoe!"
+      />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ramo__grade { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(36px, 6vw, 96px); align-items: center; }
+  .ramo--invertido .ramo__foto { order: 2; }
+  .ramo__foto { border-radius: 10px; overflow: hidden; aspect-ratio: 4 / 3; opacity: 0; transform: translateY(24px); transition: opacity 1.3s var(--ease-saida), transform 1.3s var(--ease-saida); }
+  .ramo__foto.in { opacity: 1; transform: none; }
+  .ramo__foto :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .ramo__texto { display: flex; flex-direction: column; gap: 18px; }
+  .ramo__texto p:not(.rotulo):not(.lede) { max-width: 56ch; }
+  .ramo__nota { font-size: 0.88rem; color: var(--marrom-suave); }
+
+  .etapas { margin-top: clamp(72px, 9vw, 120px); }
+  .etapas h3 { margin-bottom: 32px; }
+  .etapas ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); position: relative; }
+  .etapas ol::before { content: ''; position: absolute; left: 0; right: 0; top: 18px; height: 1px; background: linear-gradient(to right, var(--ouro), var(--carmim)); opacity: 0.6; }
+  .etapas li { position: relative; padding-right: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .etapas__n { width: 37px; height: 37px; border-radius: 50%; display: grid; place-items: center; background: var(--creme); border: 1px solid var(--ouro); font-family: var(--f-display); font-size: 1.1rem; margin-bottom: 8px; }
+  .etapas h4 { font-family: var(--f-display); font-size: 1.35rem; font-weight: 600; }
+  .etapas p { font-size: 0.93rem; color: var(--marrom-2); }
+
+  .leigos { background: var(--creme-2); }
+  .leigos__grade { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 120px); }
+  .leigos article { display: flex; flex-direction: column; gap: 18px; }
+  .leigos article + article { border-left: 1px solid var(--linha-forte); padding-left: clamp(40px, 7vw, 120px); margin-left: calc(-1 * clamp(40px, 7vw, 120px) / 2); }
+  .leigos p:not(.rotulo) { max-width: 52ch; }
+  .leigos__citacao { font-family: var(--f-display); font-style: italic; font-size: 1.45rem; color: var(--carmim); }
+
+  .conversar__grade { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(40px, 7vw, 110px); align-items: start; }
+  .conversar h2 { margin: 18px 0 20px; }
+
+  @media (max-width: 960px) { .etapas ol { grid-template-columns: 1fr; gap: 28px; } .etapas ol::before { left: 18px; right: auto; top: 0; bottom: 0; width: 1px; height: auto; background: linear-gradient(var(--ouro), var(--carmim)); } .etapas li { padding-left: 56px; } .etapas__n { position: absolute; left: 0; top: -4px; } }
+  @media (max-width: 860px) {
+    .ramo__grade, .leigos__grade, .conversar__grade { grid-template-columns: 1fr; }
+    .ramo--invertido .ramo__foto { order: 0; }
+    .leigos article + article { border-left: 0; padding-left: 0; margin-left: 0; border-top: 1px solid var(--linha-forte); padding-top: 40px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .ramo__foto { opacity: 1; transform: none; } }
+</style>

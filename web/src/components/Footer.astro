@@ -1,0 +1,90 @@
+---
+import { Image } from 'astro:assets';
+import selo from '../assets/img/selo-fjs.png';
+import { getConfiguracao, type Local } from '../lib/strapi';
+
+const cfg = await getConfiguracao();
+const lema = cfg?.lema ?? 'No mínimo, devemos dar a Deus o máximo.';
+const locais: Local[] = cfg?.locais ?? [];
+const redes = cfg?.redes ?? [];
+const ano = new Date().getFullYear();
+const tel = (t?: string) => (t ? `tel:+55${t.replace(/\D/g, '')}` : undefined);
+---
+
+<footer class="rodape">
+  <div class="wrap">
+    <p class="rodape__lema" data-revela>
+      <span aria-hidden="true">“</span>{lema.replace(/\.$/, '')}<span aria-hidden="true">”</span>
+    </p>
+
+    <div class="rodape__grade">
+      <div class="rodape__marca">
+        <Image src={selo} alt="Selo da Fraternidade Jesus Salvador" width={120} height={110} />
+        <p>Fraternidade Jesus Salvador. Servos e Servas de Jesus Salvador, Servos Evangelizadores do Reino e Juventude Salvista.</p>
+      </div>
+
+      {locais.map((l) => (
+        <address class="rodape__local">
+          <h2>{l.nome}</h2>
+          <p>{l.endereco}<br />{l.bairro}<br />{l.cidade}{l.cep && ` · CEP ${l.cep}`}</p>
+          {l.telefone && <p><a href={tel(l.telefone)}>{l.telefone}</a></p>}
+          {l.email && <p><a href={`mailto:${l.email}`}>{l.email}</a></p>}
+        </address>
+      ))}
+
+      <nav class="rodape__nav" aria-label="Rodapé">
+        <h2>Caminhos</h2>
+        <ul>
+          <li><a href="/vocacao">Sinto um chamado</a></li>
+          <li><a href="/apoie">Seja padrinho ou madrinha</a></li>
+          <li><a href="/contato#oracao">Pedido de oração</a></li>
+          <li><a href="/espiritualidade#oracoes">Orações</a></li>
+          <li><a href="/noticias">Notícias</a></li>
+        </ul>
+        {redes.length > 0 && (
+          <ul class="rodape__redes">
+            {redes.map((r) => (
+              <li><a href={r.url} target="_blank" rel="noopener">{r.rotulo ?? r.rede[0].toUpperCase() + r.rede.slice(1)}</a></li>
+            ))}
+          </ul>
+        )}
+      </nav>
+    </div>
+
+    <p class="rodape__base">
+      <span>© {ano} Fraternidade Jesus Salvador</span>
+      <span class="rodape__laus">Laus Dei</span>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .rodape { background: var(--noite); color: rgba(244, 237, 225, 0.78); padding: clamp(72px, 10vw, 128px) 0 32px; margin-top: clamp(48px, 6vw, 96px); }
+  .rodape a { color: var(--creme); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 400ms var(--ease-saida); }
+  .rodape a:hover { border-color: var(--ouro-claro); }
+  .rodape h2 {
+    font-family: var(--f-inscricao); font-size: var(--t-rotulo); letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ouro-claro); margin-bottom: 14px; font-weight: 500;
+  }
+  .rodape__lema {
+    font-family: var(--f-display); font-style: italic; font-size: clamp(1.8rem, 1.2rem + 2.6vw, 3.4rem);
+    line-height: 1.15; color: var(--creme); max-width: 22ch; margin-bottom: clamp(56px, 8vw, 96px);
+    opacity: 0; transform: translateY(16px); transition: opacity 1.2s var(--ease-saida), transform 1.2s var(--ease-saida);
+  }
+  .rodape__lema.in { opacity: 1; transform: none; }
+  .rodape__lema span { color: var(--ouro-claro); }
+  .rodape__grade { display: grid; grid-template-columns: 1.3fr 1fr 1fr 0.9fr; gap: 40px; font-size: 0.95rem; line-height: 1.6; }
+  .rodape__marca img { width: 72px; height: auto; margin-bottom: 18px; filter: drop-shadow(0 0 18px rgba(216, 189, 133, 0.18)); }
+  .rodape__marca p { max-width: 34ch; }
+  address { font-style: normal; }
+  address p + p { margin-top: 6px; }
+  .rodape ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .rodape__redes { margin-top: 22px !important; display: flex !important; gap: 18px !important; }
+  .rodape__base {
+    margin-top: 72px; padding-top: 24px; border-top: 1px solid rgba(244, 237, 225, 0.14);
+    display: flex; justify-content: space-between; align-items: baseline; gap: 16px; font-size: 0.85rem;
+  }
+  .rodape__laus { font-family: var(--f-inscricao); letter-spacing: 0.3em; color: var(--ouro-claro); }
+  @media (max-width: 960px) { .rodape__grade { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .rodape__grade { grid-template-columns: 1fr; } }
+</style>

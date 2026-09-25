@@ -1,0 +1,30 @@
+---
+// O fio de ouro: os raios do selo que descem entre as seções.
+// Desenha-se de cima para baixo quando entra na tela e termina numa pequena chama.
+interface Props { escuro?: boolean; altura?: number }
+const { escuro = false, altura = 120 } = Astro.props;
+---
+
+<div class:list={['fio', { escuro }]} style={`--h:${altura}px`} aria-hidden="true">
+  <span class="fio__linha"></span>
+  <svg class="fio__chama" viewBox="0 0 20 28" width="14" height="20">
+    <path d="M10 1C12 8 18 11 18 18a8 8 0 0 1-16 0c0-4 2-6 4-8 0 3 1 5 3 6-1-5 0-10 1-15Z" />
+  </svg>
+</div>
+
+<style>
+  .fio { display: flex; flex-direction: column; align-items: center; gap: 10px; color: var(--ouro); margin-block: -8px; }
+  .fio.escuro { color: var(--ouro-claro); }
+  .fio__linha {
+    width: 1px; height: var(--h);
+    background: linear-gradient(to bottom, transparent, currentColor 35%, currentColor);
+    transform: scaleY(0); transform-origin: top;
+    transition: transform 1.6s var(--ease-saida);
+  }
+  .fio__chama {
+    fill: none; stroke: currentColor; stroke-width: 1.2; opacity: 0; transform: translateY(-6px) scale(0.8);
+    transition: opacity 800ms var(--ease-saida) 1.1s, transform 800ms var(--ease-saida) 1.1s;
+  }
+  .fio.in .fio__linha { transform: scaleY(1); }
+  .fio.in .fio__chama { opacity: 1; transform: none; }
+</style>

@@ -1,0 +1,53 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getOracoes, type Oracao } from '../../lib/strapi';
+import { renderBlocks, plainText } from '../../lib/blocks';
+
+export async function getStaticPaths() {
+  const oracoes = await getOracoes();
+  return oracoes.map((o, i) => ({
+    params: { slug: o.slug },
+    props: { oracao: o, proxima: oracoes[(i + 1) % oracoes.length] },
+  }));
+}
+
+const { oracao, proxima } = Astro.props as { oracao: Oracao; proxima: Oracao };
+---
+
+<Base title={oracao.titulo} description={plainText(oracao.texto, 155)}>
+  <article class="oracao wrap">
+    <a class="oracao__voltar" href="/espiritualidade#oracoes">← Orações</a>
+    <svg class="oracao__chama" viewBox="0 0 20 28" aria-hidden="true">
+      <path d="M10 1C12 8 18 11 18 18a8 8 0 0 1-16 0c0-4 2-6 4-8 0 3 1 5 3 6-1-5 0-10 1-15Z" />
+    </svg>
+    <h1>{oracao.titulo}</h1>
+    {oracao.intencao && <p class="oracao__intencao">{oracao.intencao}</p>}
+    {oracao.introducao && <p class="oracao__intro">{oracao.introducao}</p>}
+    <div class="oracao__texto" set:html={renderBlocks(oracao.texto)} />
+    <p class="oracao__amem" aria-hidden="true">✢</p>
+
+    <nav class="oracao__nav">
+      <a class="btn btn--linha" href="/contato#oracao">Deixar um pedido de oração</a>
+      {proxima && proxima.slug !== oracao.slug && (
+        <a class="link-seta" href={`/oracoes/${proxima.slug}`}>{proxima.titulo} <span aria-hidden="true">→</span></a>
+      )}
+    </nav>
+  </article>
+</Base>
+
+<style>
+  .oracao { max-width: 760px; padding-top: clamp(40px, 6vw, 88px); text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .oracao__voltar { align-self: flex-start; font-size: 0.9rem; text-decoration: none; color: var(--marrom-suave); }
+  .oracao__chama { width: 22px; margin: 48px 0 24px; fill: none; stroke: var(--ouro); stroke-width: 1.2; }
+  .oracao h1 { font-size: clamp(2.2rem, 1.6rem + 2.6vw, 3.6rem); max-width: 18ch; }
+  .oracao__intencao { margin-top: 16px; font-size: 0.95rem; color: var(--marrom-suave); }
+  .oracao__intro { margin-top: 28px; max-width: 52ch; color: var(--marrom-2); }
+  .oracao__texto {
+    margin-top: 56px; font-family: var(--f-display); font-size: clamp(1.35rem, 1.2rem + 0.6vw, 1.65rem); line-height: 1.6;
+    display: grid; gap: 1em; max-width: 34em;
+  }
+  .oracao__texto :global(p) { text-wrap: pretty; }
+  .oracao__texto :global(strong) { font-weight: 600; }
+  .oracao__amem { margin-top: 48px; color: var(--ouro); font-size: 1.3rem; }
+  .oracao__nav { margin-top: 72px; padding-top: 32px; border-top: 1px solid var(--linha); width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
+</style>

@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "paginas",
+  "info": {
+    "singularName": "pagina",
+    "pluralName": "paginas",
+    "displayName": "Página",
+    "description": "Páginas institucionais montadas por blocos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titulo",
+      "required": true
+    },
+    "secao": {
+      "type": "enumeration",
+      "enum": [
+        "quem-somos",
+        "espiritualidade",
+        "familia",
+        "missoes",
+        "vocacao",
+        "apoie",
+        "contato",
+        "outras"
+      ],
+      "default": "outras",
+      "required": true
+    },
+    "ordem": {
+      "type": "integer",
+      "default": 0
+    },
+    "resumo": {
+      "type": "text"
+    },
+    "capa": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "blocos": {
+      "type": "dynamiczone",
+      "components": [
+        "blocos.texto",
+        "blocos.citacao",
+        "blocos.imagem",
+        "blocos.galeria",
+        "blocos.chamada",
+        "blocos.oracoes",
+        "blocos.pessoas",
+        "blocos.video"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

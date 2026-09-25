@@ -1,0 +1,24 @@
+---
+// Abertura das páginas internas.
+interface Props { rotulo: string; titulo: string; lede?: string; centro?: boolean }
+const { rotulo, titulo, lede, centro = false } = Astro.props;
+---
+
+<header class:list={['cabecalho wrap', { centro }]}>
+  <p class="rotulo">{rotulo}</p>
+  <h1 set:html={titulo} />
+  {lede && <p class="lede">{lede}</p>}
+  <slot />
+</header>
+
+<style>
+  .cabecalho { padding: clamp(48px, 8vw, 120px) 0 clamp(40px, 6vw, 80px); display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
+  .cabecalho.centro { align-items: center; text-align: center; }
+  .cabecalho h1 { max-width: 18ch; }
+  .cabecalho :global(h1 em) { color: var(--carmim); }
+  .cabecalho > * { opacity: 0; animation: cab 1.1s var(--ease-saida) forwards; }
+  .cabecalho > :nth-child(2) { animation-delay: 90ms; }
+  .cabecalho > :nth-child(n + 3) { animation-delay: 200ms; }
+  @keyframes cab { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .cabecalho > * { opacity: 1; } }
+</style>

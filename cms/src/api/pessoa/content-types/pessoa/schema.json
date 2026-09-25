@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pessoas",
+  "info": {
+    "singularName": "pessoa",
+    "pluralName": "pessoas",
+    "displayName": "Pessoa",
+    "description": "Padres, irmãos, irmãs e leigos citados no site"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nome",
+      "required": true
+    },
+    "tratamento": {
+      "type": "string"
+    },
+    "cargo": {
+      "type": "string"
+    },
+    "instituto": {
+      "type": "enumeration",
+      "enum": [
+        "servos",
+        "servas",
+        "leigos"
+      ],
+      "default": "servos"
+    },
+    "foto": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "bio": {
+      "type": "text"
+    },
+    "governoGeral": {
+      "type": "boolean",
+      "default": false
+    },
+    "ordem": {
+      "type": "integer",
+      "default": 0
+    },
+    "missoes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::missao.missao",
+      "mappedBy": "responsaveis"
+    }
+  }
+}

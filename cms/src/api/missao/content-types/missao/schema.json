@@ -1,0 +1,101 @@
+{
+  "kind": "collectionType",
+  "collectionName": "missoes",
+  "info": {
+    "singularName": "missao",
+    "pluralName": "missoes",
+    "displayName": "Missão",
+    "description": "Paróquias, casas e obras onde os salvistas atuam"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nome",
+      "required": true
+    },
+    "tipo": {
+      "type": "enumeration",
+      "enum": [
+        "paroquia",
+        "santuario",
+        "casa-de-formacao",
+        "casa-apostolica",
+        "obra-social",
+        "outra"
+      ],
+      "default": "paroquia",
+      "required": true
+    },
+    "pais": {
+      "type": "enumeration",
+      "enum": [
+        "brasil",
+        "franca",
+        "italia",
+        "portugal",
+        "outro"
+      ],
+      "default": "brasil",
+      "required": true
+    },
+    "diocese": {
+      "type": "string"
+    },
+    "cidade": {
+      "type": "string"
+    },
+    "estado": {
+      "type": "string"
+    },
+    "inicio": {
+      "type": "string"
+    },
+    "responsaveisTexto": {
+      "type": "text"
+    },
+    "resumo": {
+      "type": "text"
+    },
+    "descricao": {
+      "type": "blocks"
+    },
+    "foto": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "latitude": {
+      "type": "decimal"
+    },
+    "longitude": {
+      "type": "decimal"
+    },
+    "site": {
+      "type": "string"
+    },
+    "ativa": {
+      "type": "boolean",
+      "default": true
+    },
+    "ordem": {
+      "type": "integer",
+      "default": 0
+    },
+    "responsaveis": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pessoa.pessoa",
+      "inversedBy": "missoes"
+    }
+  }
+}

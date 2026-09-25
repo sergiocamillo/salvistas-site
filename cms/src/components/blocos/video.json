@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_blocos_video",
+  "info": {
+    "displayName": "Vídeo",
+    "icon": "play"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "youtubeUrl": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

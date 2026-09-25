@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_shared_local",
+  "info": {
+    "displayName": "Local",
+    "icon": "pinMap"
+  },
+  "options": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "endereco": {
+      "type": "string"
+    },
+    "bairro": {
+      "type": "string"
+    },
+    "cidade": {
+      "type": "string"
+    },
+    "cep": {
+      "type": "string"
+    },
+    "telefone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "mapaUrl": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPosts, mediaUrl, dataLonga, type Post } from '../../lib/strapi';
+import { renderBlocks, plainText } from '../../lib/blocks';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post, relacionados: posts.filter((p) => p.slug !== post.slug && p.categoria?.slug === post.categoria?.slug).slice(0, 3) },
+  }));
+}
+
+const { post, relacionados } = Astro.props as { post: Post; relacionados: Post[] };
+const capa = post.capa?.formats?.large ?? post.capa;
+// A capa costuma repetir a primeira imagem do texto: não mostra duas vezes.
+const conteudo = post.conteudo.filter((b, i) => !(i < 3 && b.type === 'image' && b.image?.hash === post.capa?.hash));
+---
+
+<Base title={post.titulo} description={post.resumo ?? plainText(post.conteudo, 160)} image={capa ? mediaUrl(capa) : undefined}>
+  <article class="post">
+    <header class="post__cabeca wrap">
+      <a class="post__voltar" href="/noticias">← Notícias</a>
+      <p class="post__meta">
+        {post.categoria && <a href={`/noticias/categoria/${post.categoria.slug}`}>{post.categoria.nome}</a>}
+        <time datetime={post.data}>{dataLonga(post.data)}</time>
+      </p>
+      <h1>{post.titulo}</h1>
+      {post.resumo && <p class="lede">{post.resumo}</p>}
+    </header>
+
+    {capa && (
+      <figure class="post__capa">
+        <img src={mediaUrl(capa)} alt={post.capa?.alternativeText ?? ''} width={capa.width ?? undefined} height={capa.height ?? undefined} />
+      </figure>
+    )}
+
+    <div class="post__corpo prosa" set:html={renderBlocks(conteudo)} />
+  </article>
+
+  {relacionados.length > 0 && (
+    <section class="secao relacionados">
+      <div class="wrap">
+        <h2>Leia também</h2>
+        <div class="relacionados__grade">{relacionados.map((p) => <PostCard post={p} />)}</div>
+      </div>
+    </section>
+  )}
+</Base>
+
+<style>
+  .post__cabeca { max-width: 860px; padding-top: clamp(40px, 6vw, 88px); display: flex; flex-direction: column; gap: 20px; }
+  .post__voltar { font-size: 0.9rem; text-decoration: none; color: var(--marrom-suave); }
+  .post__voltar:hover { color: var(--marrom); }
+  .post__meta { display: flex; gap: 14px; align-items: baseline; font-size: 0.88rem; color: var(--marrom-suave); }
+  .post__meta a { color: var(--carmim); font-weight: 600; text-decoration: none; }
+  .post h1 { font-size: clamp(2.2rem, 1.5rem + 3vw, 3.8rem); max-width: 20ch; }
+  .post__capa { width: min(100% - 2 * var(--gutter), 1100px); margin: clamp(40px, 5vw, 64px) auto 0; }
+  .post__capa img { width: 100%; max-height: 72vh; object-fit: cover; border-radius: 8px; }
+  .post__corpo { width: min(100% - 2 * var(--gutter), 720px); margin: clamp(40px, 5vw, 72px) auto 0; }
+  .relacionados { border-top: 1px solid var(--linha); margin-top: var(--secao); }
+  .relacionados h2 { margin-bottom: 40px; }
+  .relacionados__grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  @media (max-width: 860px) { .relacionados__grade { grid-template-columns: 1fr; } }
+</style>

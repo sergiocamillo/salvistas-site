@@ -1,0 +1,424 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Fio from '../components/Fio.astro';
+import Vela from '../components/Vela.astro';
+import PostCard from '../components/PostCard.astro';
+import fotoGeral from '../assets/img/capitulo-geral-2026.jpg';
+import fotoServos from '../assets/img/capitulo-servos-2026.jpg';
+import fotoServas from '../assets/img/capitulo-servas-recorte.jpg';
+import icone from '../assets/img/icone-nossa-senhora-de-pentecostes.jpg';
+import { getPosts, getConfiguracao } from '../lib/strapi';
+
+const posts = (await getPosts(3)).slice(0, 3);
+const cfg = await getConfiguracao();
+const valor = cfg?.valorSugeridoApadrinhamento ?? 25;
+
+const familia = [
+  { n: 'I', nome: 'Servos de Jesus Salvador', sub: 'Padres e irmãos', texto: 'Consagrados que vivem em comunidade, pregam com a unção do Espírito Santo e pastoreiam paróquias no Brasil e na Europa.', href: '/vocacao#servos' },
+  { n: 'II', nome: 'Servas de Jesus Salvador', sub: 'Irmãs', texto: 'Mulheres consagradas, cheias do Espírito Santo, que vivem o louvor na oração e na missão.', href: '/vocacao#servas' },
+  { n: 'III', nome: 'Servos Evangelizadores do Reino', sub: 'Leigos (S.E.R.)', texto: 'Casados ou solteiros que partilham o carisma do louvor em casa, no trabalho e na pastoral.', href: '/vocacao#leigos' },
+  { n: 'IV', nome: 'Juventude Salvista', sub: 'Jovens', texto: 'Uma juventude de louvor, carismática e missionária, que evangeliza pela música, pelo teatro, pelo esporte e pela amizade.', href: '/vocacao#juventude' },
+];
+
+const lugares = [
+  { pais: 'Brasil', onde: 'São Paulo · Mato Grosso do Sul · Pará' },
+  { pais: 'Portugal', onde: 'Diocese de Coimbra' },
+  { pais: 'Itália', onde: 'Diocese de Lamezia Terme' },
+  { pais: 'França', onde: 'Diocese de Fréjus-Toulon' },
+];
+---
+
+<Base>
+  <!-- 1 · o lema ----------------------------------------------------------- -->
+  <section class="hero">
+    <svg class="hero__raios raios" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+      {Array.from({ length: 23 }, (_, i) => {
+        const a = (-66 + i * 6) * (Math.PI / 180);
+        const x2 = 600 + Math.sin(a) * 900;
+        const y2 = -60 + Math.cos(a) * 900;
+        return <path d={`M600 -60 L${x2.toFixed(1)} ${y2.toFixed(1)}`} style={`--i:${i}`} />;
+      })}
+    </svg>
+
+    <div class="wrap hero__texto">
+      <p class="rotulo hero__rotulo">Salvistas · desde 1993</p>
+      <h1 class="hero__lema">
+        <span class="linha"><span>No mínimo, devemos</span></span>
+        <span class="linha"><span>dar a Deus <em>o máximo.</em></span></span>
+      </h1>
+      <p class="lede hero__lede">
+        Somos padres, irmãos, irmãs e leigos que vivem para o louvor de Deus e levam a salvação de Jesus a quem mais precisa.
+      </p>
+      <div class="hero__acoes">
+        <a class="btn" href="#familia">Conheça a família salvista <span class="seta" aria-hidden="true">→</span></a>
+        <a class="btn btn--linha" href="/vocacao">Sinto um chamado</a>
+      </div>
+    </div>
+
+    <figure class="hero__foto">
+      <div class="hero__portas">
+        <Picture
+          src={fotoGeral}
+          formats={['avif', 'webp']}
+          widths={[640, 1024, 1600, 2400]}
+          sizes="(max-width: 1400px) 100vw, 1400px"
+          alt="Religiosos e religiosas da Fraternidade Jesus Salvador reunidos diante do Seminário Nossa Senhora de Pentecostes, sob a inscrição do lema."
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+      <figcaption class="wrap">V Capítulo Geral · Seminário Nossa Senhora de Pentecostes, São Paulo, 2026</figcaption>
+    </figure>
+  </section>
+
+  <Fio />
+
+  <!-- 2 · quem somos -------------------------------------------------------- -->
+  <section class="secao quem" id="quem-somos">
+    <div class="wrap quem__grade">
+      <div class="revela">
+        <p class="rotulo">Quem somos</p>
+        <h2>Tudo começou com uma conversa.</h2>
+      </div>
+      <div class="quem__texto revela">
+        <p class="lede">
+          Nos anos 90, o Pe. Gilberto Maria Defina ouviu muitos jovens dizerem que se sentiam “peixes fora d’água” na Igreja.
+          Em 1993 ele fundou a Fraternidade Jesus Salvador para acolher esse chamado.
+        </p>
+        <p>
+          Em 17 de setembro de 1994 nasceram os Institutos dos Servos e das Servas de Jesus Salvador, na Diocese de Santo Amaro, em São Paulo.
+          Hoje somos uma família espalhada pelo Brasil e pela Europa, unida por um só carisma: o louvor de Deus.
+        </p>
+        <a class="link-seta" href="/historia">Nossa história e o Pe. Gilberto <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+
+    <dl class="wrap numeros revela">
+      <div><dt>Fundação</dt><dd>1993</dd></div>
+      <div><dt>Países</dt><dd>4</dd></div>
+      <div><dt>Crianças e jovens no Centro Bororé</dt><dd>~450</dd></div>
+    </dl>
+  </section>
+
+  <!-- 3 · carisma ----------------------------------------------------------- -->
+  <section class="carisma" data-vivo>
+    <div class="carisma__luz" aria-hidden="true"></div>
+    <div class="wrap carisma__conteudo revela">
+      <p class="rotulo">Nosso carisma</p>
+      <p class="carisma__laus" aria-hidden="true">Laus Dei</p>
+      <h2>O louvor de Deus, em todas as suas formas.</h2>
+      <p class="carisma__texto">
+        A liturgia vem em primeiro lugar. Quem louva é transformado, e uma pessoa transformada transforma a comunidade à sua volta.
+        Por isso somos contemplativos na ação, como os primeiros cristãos.
+      </p>
+      <blockquote>
+        <p>“O que nos leva a este constante louvor divino é a procura do Único Necessário em nossa vida: estar com Deus.”</p>
+        <cite>Regra de vida salvista</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <Fio />
+
+  <!-- 4 · a família --------------------------------------------------------- -->
+  <section class="secao familia" id="familia">
+    <div class="wrap">
+      <div class="familia__cabeca revela">
+        <p class="rotulo">Família salvista</p>
+        <h2>Quatro caminhos, <em>um só louvor.</em></h2>
+        <p class="lede">Cada um vive o mesmo carisma do seu jeito. Veja onde você se encontra.</p>
+      </div>
+      <ol class="familia__lista revela">
+        {familia.map((f) => (
+          <li>
+            <a href={f.href}>
+              <span class="familia__n">{f.n}</span>
+              <span class="familia__sub">{f.sub}</span>
+              <h3>{f.nome}</h3>
+              <p>{f.texto}</p>
+              <span class="familia__ir" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- 5 · onde estamos ------------------------------------------------------ -->
+  <section class="secao onde">
+    <div class="wrap onde__grade">
+      <div class="revela">
+        <p class="rotulo">Missões</p>
+        <h2>Onde a Igreja nos chama, nós vamos.</h2>
+        <p class="lede">
+          Paróquias, casas de formação e uma obra social que acolhe cerca de 450 crianças e jovens no Grajaú, em São Paulo.
+        </p>
+        <a class="link-seta" href="/missoes">Conheça nossas missões <span aria-hidden="true">→</span></a>
+      </div>
+      <ul class="onde__lista revela">
+        {lugares.map((l) => (
+          <li><span class="onde__pais">{l.pais}</span><span class="onde__onde">{l.onde}</span></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Fio />
+
+  <!-- 6 · Nossa Senhora de Pentecostes -------------------------------------- -->
+  <section class="secao senhora" data-vivo>
+    <div class="wrap senhora__grade">
+      <figure class="senhora__icone" data-revela>
+        <div class="senhora__nicho">
+          <Picture src={icone} formats={['avif', 'webp']} widths={[480, 800, 1080]} sizes="(max-width: 860px) 80vw, 460px"
+            alt="Ícone de Nossa Senhora de Pentecostes: Maria de braços abertos, envolta em manto vermelho, sobre os apóstolos, sob a chama do Espírito Santo." />
+        </div>
+        <figcaption>Ícone original na capela do Seminário Nossa Senhora de Pentecostes</figcaption>
+      </figure>
+      <div class="senhora__texto revela">
+        <p class="rotulo">Nossa padroeira</p>
+        <h2>Nossa Senhora de Pentecostes</h2>
+        <p class="senhora__inscricao">“E todos ficaram repletos do Espírito Santo.”<span>At 2,4</span></p>
+        <p>
+          Uma devoção que nasceu na oração do nosso fundador. Ele nunca tinha visto Maria invocada com esse título,
+          e entendeu que por ela a Fraternidade receberia a graça do Espírito Santo. O ícone foi escrito a seu pedido
+          e é celebrado todo 17 de setembro, dia da nossa fundação.
+        </p>
+        <div class="senhora__acoes">
+          <a class="btn btn--linha" href="/espiritualidade#pentecostes">A história do ícone</a>
+          <a class="link-seta" href="/oracoes/oracao-a-nossa-senhora-de-pentecostes">Rezar a oração <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · a vela (momento interativo) --------------------------------------- -->
+  <Vela />
+
+  <!-- 8 · vocação e apoio --------------------------------------------------- -->
+  <section class="secao caminhos">
+    <div class="wrap caminhos__grade">
+      <article class="caminho revela">
+        <div class="caminho__foto">
+          <Picture src={fotoServos} formats={['avif', 'webp']} widths={[600, 1000, 1400]} sizes="(max-width: 900px) 100vw, 600px"
+            alt="Padres e irmãos do Instituto Missionário Servos de Jesus Salvador no V Capítulo Geral." />
+        </div>
+        <div class="caminho__corpo">
+          <p class="rotulo">Vocação</p>
+          <h2>Sente que Deus está chamando você?</h2>
+          <p>Conte pra gente. Um formador conversa com você no seu tempo, sem pressa e sem compromisso.</p>
+          <a class="btn" href="/vocacao">Quero conversar <span class="seta" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="caminho caminho--apoie revela">
+        <div class="caminho__foto">
+          <Picture src={fotoServas} formats={['avif', 'webp']} widths={[600, 1000, 1400]} sizes="(max-width: 900px) 100vw, 600px"
+            alt="Irmãs do Instituto Missionário Servas de Jesus Salvador no V Capítulo Geral." />
+        </div>
+        <div class="caminho__corpo">
+          <p class="rotulo">Apoie</p>
+          <h2>Ajude a formar quem vai servir a Igreja amanhã.</h2>
+          <p>Com R$ {valor} por mês você se torna padrinho ou madrinha e sustenta a formação de um seminarista ou de uma irmã.</p>
+          <a class="btn btn--claro" href="/apoie">Quero ser padrinho ou madrinha <span class="seta" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 9 · notícias ---------------------------------------------------------- -->
+  {posts.length > 0 && (
+    <section class="secao noticias">
+      <div class="wrap">
+        <div class="noticias__cabeca revela">
+          <div>
+            <p class="rotulo">Notícias</p>
+            <h2>Da vida salvista</h2>
+          </div>
+          <a class="link-seta" href="/noticias">Ver todas <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="noticias__grade revela">
+          {posts.map((p) => <PostCard post={p} />)}
+        </div>
+      </div>
+    </section>
+  )}
+</Base>
+
+<style>
+  /* ---------- 1 hero ---------- */
+  .hero { position: relative; padding-top: clamp(40px, 7vw, 96px); isolation: isolate; }
+  .hero__raios { position: absolute; inset: -80px 0 auto; width: 100%; height: 620px; z-index: -1; opacity: 0.55; }
+  .hero__raios path { stroke-dasharray: 900; stroke-dashoffset: 900; animation: raio 2.6s var(--ease-saida) forwards; animation-delay: calc(200ms + var(--i) * 35ms); }
+  @keyframes raio { to { stroke-dashoffset: 0; } }
+  .hero__texto { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .hero__rotulo::after { content: ''; width: 28px; height: 1px; background: currentColor; }
+  .hero__lema {
+    font-size: var(--t-hero); font-weight: 500; line-height: 1.02; margin: 28px 0 26px;
+    letter-spacing: -0.02em;
+  }
+  .hero__lema em { color: var(--carmim); font-style: italic; }
+  .linha { display: block; overflow: hidden; padding: 0.06em 0.1em 0.14em; margin: -0.06em -0.1em -0.14em; }
+  .linha > span { display: inline-block; transform: translateY(105%); animation: sobe 1.3s var(--ease-saida) forwards; }
+  .linha:nth-child(2) > span { animation-delay: 140ms; }
+  @keyframes sobe { to { transform: none; } }
+  .hero__rotulo, .hero__lede, .hero__acoes { opacity: 0; animation: aparece 1.2s var(--ease-saida) forwards; }
+  .hero__rotulo { animation-delay: 100ms; }
+  .hero__lede { animation-delay: 450ms; text-align: center; max-width: 44ch; }
+  .hero__acoes { animation-delay: 600ms; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 34px; }
+  @keyframes aparece { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+  .hero__foto { margin: clamp(48px, 7vw, 88px) auto 0; width: min(100% - 2 * var(--gutter), 1400px); }
+  .hero__portas {
+    overflow: hidden; border-radius: 8px; aspect-ratio: 2 / 1; background: var(--creme-3);
+    clip-path: inset(0 50% 0 50% round 8px);
+    animation: portas 2s var(--ease-suave) 500ms forwards;
+  }
+  .hero__portas :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: 50% 88%; transform: scale(1.08); animation: assenta 3.4s var(--ease-saida) 500ms forwards; }
+  @keyframes portas { to { clip-path: inset(0 0 0 0 round 8px); } }
+  @keyframes assenta { to { transform: scale(1); } }
+  .hero__foto figcaption { margin-top: 14px; font-size: 0.85rem; color: var(--marrom-suave); text-align: center; }
+
+  /* ---------- 2 quem somos ---------- */
+  .quem__grade { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .quem h2 { margin-top: 18px; max-width: 12ch; }
+  .quem__texto { display: grid; gap: 22px; padding-top: 44px; }
+  .quem__texto p:not(.lede) { max-width: 58ch; }
+  .quem__texto .link-seta { justify-self: start; }
+  .numeros { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: clamp(64px, 8vw, 112px); border-top: 1px solid var(--linha); }
+  .numeros div { padding: 28px 24px 0 0; display: flex; flex-direction: column-reverse; gap: 8px; }
+  .numeros div + div { padding-left: 24px; border-left: 1px solid var(--linha); }
+  .numeros dt { font-size: 0.9rem; color: var(--marrom-suave); }
+  .numeros dd { margin: 0; font-family: var(--f-display); font-size: clamp(2.8rem, 2rem + 3vw, 4.6rem); line-height: 1; color: var(--marrom); }
+
+  /* ---------- 3 carisma ---------- */
+  .carisma { position: relative; overflow: hidden; background: var(--noite); color: var(--creme); padding-block: clamp(96px, 14vw, 200px); text-align: center; }
+  .carisma__luz {
+    position: absolute; left: 50%; top: 42%; width: 900px; height: 900px; translate: -50% -50%;
+    background: radial-gradient(circle, rgba(216, 189, 133, 0.22), transparent 62%);
+    opacity: 0.6;
+  }
+  .carisma.visivel .carisma__luz { animation: respira 7s var(--ease-suave) infinite alternate; animation-delay: -2.5s; }
+  @keyframes respira { to { opacity: 1; transform: scale(1.08); } }
+  .carisma__conteudo { position: relative; display: flex; flex-direction: column; align-items: center; }
+  .carisma .rotulo { color: var(--ouro-claro); }
+  .carisma__laus {
+    font-family: var(--f-inscricao); font-size: clamp(3.4rem, 2rem + 8vw, 9rem); letter-spacing: 0.08em; line-height: 1;
+    color: transparent; -webkit-text-stroke: 1px rgba(216, 189, 133, 0.55); margin: 36px 0 12px;
+  }
+  .carisma h2 { max-width: 18ch; }
+  .carisma__texto { margin-top: 24px; max-width: 54ch; color: rgba(244, 237, 225, 0.8); font-size: var(--t-lede); line-height: 1.6; }
+  .carisma blockquote { margin: 56px 0 0; max-width: 40ch; }
+  .carisma blockquote p { font-family: var(--f-display); font-style: italic; font-size: clamp(1.35rem, 1.1rem + 1vw, 1.9rem); line-height: 1.4; color: var(--ouro-luz); }
+  .carisma cite { display: block; margin-top: 14px; font-style: normal; font-size: 0.85rem; letter-spacing: 0.08em; color: rgba(244, 237, 225, 0.62); }
+
+  /* ---------- 4 família ---------- */
+  .familia__cabeca { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 18px; margin-bottom: clamp(48px, 6vw, 80px); }
+  .familia__cabeca em { color: var(--carmim); }
+  .familia__lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--linha-forte); }
+  .familia__lista li + li { border-left: 1px solid var(--linha); }
+  .familia__lista a {
+    position: relative; display: flex; flex-direction: column; gap: 12px; height: 100%;
+    padding: 32px 28px 72px; text-decoration: none;
+    transition: background 600ms var(--ease-saida);
+  }
+  .familia__lista a::before {
+    content: ''; position: absolute; left: 0; right: 0; top: -1px; height: 2px; background: var(--carmim);
+    transform: scaleX(0); transform-origin: left; transition: transform 700ms var(--ease-saida);
+  }
+  .familia__lista a:hover { background: rgba(235, 225, 207, 0.6); }
+  .familia__lista a:hover::before { transform: scaleX(1); }
+  .familia__n { font-family: var(--f-inscricao); font-size: 0.95rem; letter-spacing: 0.1em; color: var(--ouro-texto); }
+  .familia__sub { font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--marrom-suave); margin-top: 28px; }
+  .familia__lista h3 { font-size: 1.65rem; }
+  .familia__lista p { font-size: 0.97rem; color: var(--marrom-2); }
+  .familia__ir { position: absolute; left: 28px; bottom: 28px; font-size: 1.2rem; transition: transform 500ms var(--ease-saida); }
+  .familia__lista a:hover .familia__ir { transform: translateX(8px); }
+
+  /* ---------- 5 onde ---------- */
+  .onde { background: var(--creme-2); }
+  .onde__grade { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 120px); align-items: center; }
+  .onde h2 { margin: 18px 0 22px; max-width: 14ch; }
+  .onde .lede { margin-bottom: 30px; }
+  .onde__lista { list-style: none; margin: 0; padding: 0; }
+  .onde__lista li { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--linha); }
+  .onde__lista li:first-child { border-top: 1px solid var(--linha); }
+  .onde__pais { font-family: var(--f-display); font-size: clamp(2rem, 1.5rem + 2vw, 3rem); line-height: 1; }
+  .onde__onde { font-size: 0.92rem; color: var(--marrom-suave); text-align: right; }
+
+  /* ---------- 6 Nossa Senhora ---------- */
+  .senhora__grade { display: grid; grid-template-columns: minmax(0, 0.85fr) 1fr; gap: clamp(40px, 7vw, 110px); align-items: center; }
+  .senhora__icone { margin: 0; position: relative; }
+  .senhora__icone::before {
+    content: ''; position: absolute; inset: -12% -18%; z-index: -1;
+    background: radial-gradient(closest-side, rgba(239, 220, 174, 0.9), transparent);
+    opacity: 0.5;
+  }
+  .senhora.visivel .senhora__icone::before { animation: respira 6s var(--ease-suave) infinite alternate; animation-delay: -1.2s; }
+  .senhora__nicho {
+    border-radius: 999px 999px 10px 10px; overflow: hidden; aspect-ratio: 5 / 7;
+    box-shadow: 0 0 0 1px var(--ouro-claro), 0 0 0 10px var(--creme), 0 0 0 11px var(--linha), 0 40px 80px -30px rgba(58, 35, 29, 0.45);
+  }
+  .senhora__nicho :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .senhora__icone { opacity: 0; transform: translateY(28px); transition: opacity 1.4s var(--ease-saida), transform 1.4s var(--ease-saida); }
+  .senhora__icone.in { opacity: 1; transform: none; }
+  .senhora__icone figcaption { margin-top: 26px; font-size: 0.82rem; color: var(--marrom-suave); text-align: center; }
+  .senhora h2 { margin: 18px 0 26px; }
+  .senhora__inscricao { font-family: var(--f-display); font-style: italic; font-size: 1.6rem; line-height: 1.35; color: var(--carmim); margin-bottom: 24px; }
+  .senhora__inscricao span { display: block; font-family: var(--f-corpo); font-style: normal; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--marrom-suave); margin-top: 6px; }
+  .senhora__texto > p:not(.rotulo):not(.senhora__inscricao) { max-width: 54ch; }
+  .senhora__acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 34px; }
+
+  /* ---------- 8 caminhos ---------- */
+  .caminhos__grade { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 2vw, 28px); }
+  .caminho { display: flex; flex-direction: column; border-radius: 10px; overflow: hidden; background: var(--creme-2); }
+  .caminho__foto { aspect-ratio: 16 / 9; overflow: hidden; }
+  .caminho__foto :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease-saida); }
+  .caminho:hover .caminho__foto :global(img) { transform: scale(1.03); }
+  .caminho__corpo { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; padding: clamp(28px, 4vw, 52px); flex: 1; }
+  .caminho__corpo h2 { font-size: clamp(1.8rem, 1.3rem + 1.6vw, 2.6rem); max-width: 16ch; }
+  .caminho__corpo p:not(.rotulo) { max-width: 44ch; color: var(--marrom-2); margin-bottom: 8px; }
+  .caminho__corpo .btn { margin-top: auto; }
+  .caminho--apoie { background: var(--carmim); color: var(--creme); }
+  .caminho--apoie .rotulo { color: var(--ouro-luz); }
+  .caminho--apoie .caminho__corpo p:not(.rotulo) { color: rgba(244, 237, 225, 0.86); }
+
+  /* ---------- 9 notícias ---------- */
+  .noticias__cabeca { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 44px; }
+  .noticias__cabeca h2 { margin-top: 14px; }
+  .noticias__grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 40px); }
+
+  /* ---------- responsivo ---------- */
+  @media (max-width: 1000px) {
+    .familia__lista { grid-template-columns: 1fr 1fr; }
+    .familia__lista li:nth-child(3) { border-left: 0; }
+    .familia__lista li:nth-child(n + 3) { border-top: 1px solid var(--linha); }
+  }
+  @media (max-width: 860px) {
+    .quem__grade, .onde__grade, .senhora__grade, .caminhos__grade { grid-template-columns: 1fr; }
+    .quem__texto { padding-top: 0; }
+    .senhora__icone { max-width: 380px; margin-inline: auto; }
+    .noticias__grade { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .numeros { grid-template-columns: 1fr; }
+    .numeros div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--linha); margin-top: 24px; }
+    .familia__lista { grid-template-columns: 1fr; }
+    .familia__lista li + li { border-left: 0; border-top: 1px solid var(--linha); }
+    .familia__lista a { padding: 28px 4px 64px; }
+    .familia__ir { left: 4px; }
+    .onde__lista li { flex-direction: column; gap: 6px; }
+    .onde__onde { text-align: left; }
+    .hero__portas { aspect-ratio: 16 / 11; }
+    .hero__raios { opacity: 0.3; }
+    .hero__portas :global(img) { object-position: 50% 80%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__raios path { stroke-dashoffset: 0; }
+    .linha > span, .hero__rotulo, .hero__lede, .hero__acoes { transform: none; opacity: 1; }
+    .hero__portas { clip-path: none; }
+    .hero__portas :global(img) { transform: none; }
+    .senhora__icone { opacity: 1; transform: none; }
+  }
+</style>

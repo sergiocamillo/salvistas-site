@@ -1,0 +1,190 @@
+/* ============================================================
+   Fraternidade Jesus Salvador · sistema visual
+   Mundo: fachada creme do seminário, hábito marrom, carmim do
+   brasão, ouro litúrgico. Assinatura: o fio de ouro (os raios
+   de Pentecostes do selo) que desce pela página.
+   ============================================================ */
+
+:root {
+  /* cor */
+  --creme: #f4ede1;
+  --creme-2: #ebe1cf;
+  --creme-3: #e0d3bc;
+  --marrom: #3a231d;
+  --marrom-2: #5b3c31;
+  --marrom-suave: #6c5045;
+  --noite: #2b1a15;
+  --noite-2: #3a251e;
+  --carmim: #8d1c20;
+  --carmim-escuro: #6f1418;
+  --ouro: #a98241;
+  --ouro-texto: #7a5c2a; /* ouro legível em texto pequeno sobre creme */
+  --ouro-claro: #d8bd85;
+  --ouro-luz: #efdcae;
+  --linha: rgba(58, 35, 29, 0.16);
+  --linha-forte: rgba(58, 35, 29, 0.42);
+
+  /* tipo */
+  --f-display: 'Cormorant Garamond', 'Cormorant', Garamond, 'Times New Roman', serif;
+  --f-inscricao: 'Cinzel', 'Trajan Pro', 'Cormorant Garamond', serif;
+  --f-corpo: 'Figtree', 'Helvetica Neue', Arial, sans-serif;
+
+  --t-hero: clamp(2.6rem, 1.4rem + 5.2vw, 5.6rem);
+  --t-h1: clamp(2.3rem, 1.5rem + 3.4vw, 4.2rem);
+  --t-h2: clamp(1.9rem, 1.35rem + 2.2vw, 3.1rem);
+  --t-h3: clamp(1.35rem, 1.15rem + 0.8vw, 1.7rem);
+  --t-lede: clamp(1.1rem, 1rem + 0.45vw, 1.3rem);
+  --t-corpo: 1.0625rem;
+  --t-rotulo: 0.74rem;
+
+  /* espaço */
+  --gutter: clamp(16px, 4vw, 48px);
+  --max: 1240px;
+  --secao: clamp(80px, 11vw, 160px);
+
+  /* movimento */
+  --ease-saida: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-suave: cubic-bezier(0.45, 0, 0.2, 1);
+  --dur: 900ms;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { overflow-x: hidden; overflow-x: clip; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  overflow-x: hidden; overflow-x: clip;
+  margin: 0;
+  background: var(--creme);
+  color: var(--marrom);
+  font-family: var(--f-corpo);
+  font-size: var(--t-corpo);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-variant-numeric: lining-nums;
+  animation: pagina-entra 700ms var(--ease-saida) both;
+}
+@keyframes pagina-entra { from { opacity: 0; } }
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+::selection { background: var(--ouro-luz); color: var(--marrom); }
+
+:focus-visible { outline: 2px solid var(--carmim); outline-offset: 3px; border-radius: 2px; }
+
+.skip {
+  position: absolute; left: 12px; top: -60px; z-index: 100;
+  background: var(--marrom); color: var(--creme); padding: 10px 16px; border-radius: 4px;
+  text-decoration: none; transition: top 200ms var(--ease-saida);
+}
+.skip:focus { top: 12px; }
+main:focus { outline: none; }
+
+/* ---------- ambiente: uma camada fixa atrás de tudo ---------- */
+.ambiente {
+  position: fixed; inset: -20vmax; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(38vmax 30vmax at 18% 12%, rgba(239, 220, 174, 0.55), transparent 70%),
+    radial-gradient(34vmax 28vmax at 86% 78%, rgba(224, 211, 188, 0.7), transparent 70%);
+  animation: ambiente 90s var(--ease-suave) infinite alternate;
+  animation-delay: -30s;
+}
+.ambiente::after {
+  content: ''; position: absolute; inset: 0; opacity: 0.05; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@keyframes ambiente { to { transform: translate3d(4vmax, -3vmax, 0) rotate(3deg); } }
+
+/* ---------- tipografia ---------- */
+h1, h2, h3, h4 {
+  font-family: var(--f-display); font-weight: 500; line-height: 1.08; letter-spacing: -0.01em;
+  font-variant-numeric: lining-nums;
+  margin: 0; text-wrap: balance;
+}
+h1 { font-size: var(--t-h1); }
+h2 { font-size: var(--t-h2); }
+h3 { font-size: var(--t-h3); line-height: 1.2; }
+p { margin: 0; text-wrap: pretty; }
+
+.rotulo {
+  font-family: var(--f-inscricao); font-size: var(--t-rotulo); font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--ouro-texto);
+  display: inline-flex; align-items: center; gap: 0.9em;
+}
+.rotulo::before { content: ''; width: 28px; height: 1px; background: currentColor; }
+.lede { font-size: var(--t-lede); line-height: 1.55; color: var(--marrom-2); max-width: 46ch; }
+.italico { font-style: italic; }
+.ouro { color: var(--ouro); }
+
+.wrap { width: min(100% - 2 * var(--gutter), var(--max)); margin-inline: auto; }
+.secao { padding-block: var(--secao); position: relative; }
+
+/* ---------- botões ---------- */
+.btn {
+  --bg: var(--marrom); --fg: var(--creme);
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6em;
+  padding: 0.95em 1.6em; border-radius: 999px; border: 1px solid var(--bg);
+  background: var(--bg); color: var(--fg); text-decoration: none; cursor: pointer;
+  font: 500 0.95rem/1 var(--f-corpo); letter-spacing: 0.01em;
+  transition: background 400ms var(--ease-saida), color 400ms var(--ease-saida), border-color 400ms var(--ease-saida), transform 400ms var(--ease-saida);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn .seta { transition: transform 400ms var(--ease-saida); }
+.btn:hover .seta { transform: translateX(4px); }
+.btn--carmim { --bg: var(--carmim); }
+.btn--carmim:hover { --bg: var(--carmim-escuro); }
+.btn--linha { background: transparent; color: var(--marrom); border-color: var(--linha-forte); }
+.btn--linha:hover { border-color: var(--marrom); }
+.btn--claro { --bg: var(--creme); --fg: var(--marrom); }
+.btn--linha-clara { background: transparent; color: var(--creme); border-color: rgba(244, 237, 225, 0.45); }
+.btn--linha-clara:hover { border-color: var(--creme); }
+@media (pointer: coarse) { .btn { min-height: 44px; } }
+
+.link-seta {
+  display: inline-flex; align-items: baseline; gap: 0.5em; text-decoration: none;
+  font-weight: 500; border-bottom: 1px solid var(--linha-forte); padding-bottom: 2px;
+  transition: border-color 400ms var(--ease-saida), gap 400ms var(--ease-saida);
+}
+.link-seta:hover { border-color: currentColor; gap: 0.8em; }
+
+/* ---------- entradas (IntersectionObserver adiciona .in) ---------- */
+.revela > * {
+  opacity: 0; transform: translate3d(0, 22px, 0);
+  transition: opacity var(--dur) var(--ease-saida), transform var(--dur) var(--ease-saida);
+}
+.revela.in > * { opacity: 1; transform: none; }
+.revela.in > :nth-child(2) { transition-delay: 90ms; }
+.revela.in > :nth-child(3) { transition-delay: 180ms; }
+.revela.in > :nth-child(4) { transition-delay: 270ms; }
+.revela.in > :nth-child(5) { transition-delay: 360ms; }
+.revela.in > :nth-child(n + 6) { transition-delay: 450ms; }
+/* aposenta os atrasos depois da entrada (mesma especificidade das regras acima) */
+.revela.in.pronto > :nth-child(n) { transition-delay: 0ms; }
+
+/* ---------- conteúdo rico (posts, orações) ---------- */
+.prosa { font-size: 1.125rem; line-height: 1.75; }
+.prosa > * + * { margin-top: 1.15em; }
+.prosa p, .prosa li { max-width: 68ch; }
+.prosa h2, .prosa h3, .prosa h4 { margin-top: 1.8em; max-width: 30ch; }
+.prosa h2 { font-size: 2rem; }
+.prosa h3 { font-size: 1.55rem; }
+.prosa a { color: var(--carmim); text-underline-offset: 3px; }
+.prosa blockquote {
+  margin: 1.6em 0; padding: 0.2em 0 0.2em 1.4em; border-left: 2px solid var(--ouro);
+  font-family: var(--f-display); font-size: 1.45rem; font-style: italic; line-height: 1.45; color: var(--marrom-2);
+}
+.prosa figure { margin: 2em 0; }
+.prosa figure img { border-radius: 6px; }
+.prosa figcaption { font-size: 0.875rem; color: var(--marrom-suave); margin-top: 0.6em; }
+.prosa ul, .prosa ol { padding-left: 1.3em; }
+
+/* ---------- ornamento: raios ---------- */
+.raios { color: var(--ouro); }
+.raios path { fill: none; stroke: currentColor; stroke-width: 1; vector-effect: non-scaling-stroke; }
+
+/* ---------- movimento reduzido: tudo no estado final ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; transition-delay: 0ms !important; scroll-behavior: auto !important; }
+  .revela > * { opacity: 1; transform: none; }
+}
+body.pausado *, body.pausado *::before, body.pausado *::after { animation-play-state: paused !important; }

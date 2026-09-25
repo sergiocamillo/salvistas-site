@@ -1,0 +1,37 @@
+---
+import PostCard from './PostCard.astro';
+import type { Categoria, Post } from '../lib/strapi';
+
+interface Props { posts: Post[]; categorias: Categoria[]; ativa?: string }
+const { posts, categorias, ativa } = Astro.props;
+---
+
+<nav class="filtros wrap" aria-label="Categorias">
+  <a href="/noticias" aria-current={!ativa ? 'page' : undefined}>Todas</a>
+  {categorias.map((c) => (
+    <a href={`/noticias/categoria/${c.slug}`} aria-current={ativa === c.slug ? 'page' : undefined}>{c.nome}</a>
+  ))}
+</nav>
+
+{posts.length > 0 ? (
+  <div class="grade wrap revela">
+    {posts.map((p) => <PostCard post={p} />)}
+  </div>
+) : (
+  <p class="wrap vazio">Nenhuma notícia por aqui ainda.</p>
+)}
+
+<style>
+  .filtros { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 48px; }
+  .filtros a {
+    text-decoration: none; font-size: 0.9rem; padding: 0.55em 1.1em; border-radius: 999px; border: 1px solid var(--linha-forte);
+    transition: background 400ms var(--ease-saida), color 400ms var(--ease-saida), border-color 400ms var(--ease-saida);
+  }
+  .filtros a:hover { border-color: var(--marrom); }
+  .filtros a[aria-current='page'] { background: var(--marrom); color: var(--creme); border-color: var(--marrom); }
+  @media (pointer: coarse) { .filtros a { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; } }
+  .grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(28px, 3vw, 44px) clamp(20px, 3vw, 40px); }
+  .vazio { color: var(--marrom-suave); }
+  @media (max-width: 900px) { .grade { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 580px) { .grade { grid-template-columns: 1fr; } }
+</style>

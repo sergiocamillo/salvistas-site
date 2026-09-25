@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "inicios",
+  "info": {
+    "singularName": "inicio",
+    "pluralName": "inicios",
+    "displayName": "Início",
+    "description": "Página inicial"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.hero"
+    },
+    "blocos": {
+      "type": "dynamiczone",
+      "components": [
+        "blocos.texto",
+        "blocos.citacao",
+        "blocos.imagem",
+        "blocos.galeria",
+        "blocos.chamada",
+        "blocos.oracoes",
+        "blocos.pessoas",
+        "blocos.video"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

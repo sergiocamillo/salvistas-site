@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro';
+import Cabecalho from '../../components/Cabecalho.astro';
+import ListaNoticias from '../../components/ListaNoticias.astro';
+import { getPosts, getCategorias } from '../../lib/strapi';
+
+const [posts, categorias] = await Promise.all([getPosts(), getCategorias()]);
+---
+
+<Base title="Notícias" description="Notícias, testemunhos e a vida da Fraternidade Jesus Salvador no Brasil e no mundo.">
+  <Cabecalho rotulo="Notícias" titulo="Da vida <em>salvista</em>" lede="Missões, vocações, testemunhos e o dia a dia da nossa família." />
+  <ListaNoticias posts={posts} categorias={categorias} />
+</Base>

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_blocos_chamada",
+  "info": {
+    "displayName": "Chamada",
+    "icon": "cursor"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "texto": {
+      "type": "text"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
+    }
+  }
+}

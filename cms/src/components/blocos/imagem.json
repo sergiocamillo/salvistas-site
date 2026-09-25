@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_blocos_imagem",
+  "info": {
+    "displayName": "Imagem",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "imagem": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "required": true
+    },
+    "legenda": {
+      "type": "string"
+    },
+    "largura": {
+      "type": "enumeration",
+      "enum": [
+        "texto",
+        "larga",
+        "tela-cheia"
+      ],
+      "default": "larga"
+    }
+  }
+}

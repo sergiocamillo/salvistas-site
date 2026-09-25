@@ -1,0 +1,71 @@
+{
+  "kind": "singleType",
+  "collectionName": "configuracoes",
+  "info": {
+    "singularName": "configuracao",
+    "pluralName": "configuracoes",
+    "displayName": "Configurações",
+    "description": "Contatos, redes, doação e SEO padrão"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nomeSite": {
+      "type": "string",
+      "required": true,
+      "default": "Fraternidade Jesus Salvador"
+    },
+    "lema": {
+      "type": "string",
+      "default": "No mínimo, devemos dar a Deus o máximo."
+    },
+    "descricao": {
+      "type": "text"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "brasao": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "locais": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.local"
+    },
+    "redes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.rede-social"
+    },
+    "pixChave": {
+      "type": "string"
+    },
+    "pixFavorecido": {
+      "type": "string"
+    },
+    "valorSugeridoApadrinhamento": {
+      "type": "decimal"
+    },
+    "contas": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.conta-bancaria"
+    },
+    "seoPadrao": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

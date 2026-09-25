@@ -1,0 +1,128 @@
+---
+import { Image } from 'astro:assets';
+import selo from '../assets/img/selo-fjs.png';
+
+interface Props { claro?: boolean }
+const { claro = false } = Astro.props;
+
+const links = [
+  { href: '/historia', label: 'Quem somos' },
+  { href: '/espiritualidade', label: 'Espiritualidade' },
+  { href: '/#familia', label: 'Família salvista' },
+  { href: '/missoes', label: 'Missões' },
+  { href: '/noticias', label: 'Notícias' },
+  { href: '/contato', label: 'Contato' },
+];
+const path = Astro.url.pathname;
+---
+
+<header class:list={['topo', { claro }]} data-topo>
+  <div class="topo__barra">
+    <a class="marca" href="/" aria-label="Fraternidade Jesus Salvador, página inicial">
+      <Image src={selo} alt="" width={96} height={88} class="marca__selo" loading="eager" />
+      <span class="marca__nome">
+        <span>Fraternidade</span>
+        <span>Jesus Salvador</span>
+      </span>
+    </a>
+
+    <nav class="menu" id="menu" aria-label="Principal">
+      <ul>
+        {links.map((l) => (
+          <li><a href={l.href} aria-current={path.startsWith(l.href) && l.href !== '/' ? 'page' : undefined}>{l.label}</a></li>
+        ))}
+      </ul>
+      <div class="menu__acoes">
+        <a class="btn btn--linha" href="/vocacao">Vocação</a>
+        <a class="btn btn--carmim" href="/apoie">Apoie</a>
+      </div>
+    </nav>
+
+    <button class="abrir" type="button" aria-expanded="false" aria-controls="menu" data-abrir>
+      <span class="sr">Abrir menu</span>
+      <span class="abrir__linhas" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .topo {
+    position: sticky; top: 0; z-index: 50;
+    transition: background 500ms var(--ease-saida), box-shadow 500ms var(--ease-saida), color 500ms var(--ease-saida);
+  }
+  .topo.rolou { background: rgba(244, 237, 225, 0.92); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--linha); }
+  .topo__barra {
+    width: min(100% - 2 * var(--gutter), 1400px); margin-inline: auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    padding-block: 14px;
+  }
+  .marca { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .marca__selo { width: 48px; height: auto; }
+  .marca__nome {
+    display: flex; flex-direction: column; font-family: var(--f-inscricao); font-weight: 500;
+    font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.35;
+  }
+  .marca__nome span:last-child { color: var(--carmim); }
+
+  .menu { display: flex; align-items: center; gap: 28px; }
+  .menu ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+  .menu ul a {
+    text-decoration: none; font-size: 0.92rem; font-weight: 500; position: relative; padding-block: 6px;
+  }
+  .menu ul a::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--ouro);
+    transform: scaleX(0); transform-origin: right; transition: transform 500ms var(--ease-saida);
+  }
+  .menu ul a:hover::after, .menu ul a[aria-current='page']::after { transform: scaleX(1); transform-origin: left; }
+  .menu__acoes { display: flex; gap: 10px; }
+  .menu__acoes .btn { padding: 0.75em 1.25em; font-size: 0.88rem; }
+
+  .abrir { display: none; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  @media (max-width: 1080px) {
+    .abrir {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 48px; height: 48px; border: 1px solid var(--linha-forte); border-radius: 999px;
+      background: transparent; color: inherit; cursor: pointer; position: relative; z-index: 2;
+    }
+    .abrir__linhas { display: grid; gap: 6px; width: 18px; }
+    .abrir__linhas i { display: block; height: 1.5px; background: currentColor; transition: transform 400ms var(--ease-saida); }
+    .aberto .abrir__linhas i:first-child { transform: translateY(3.75px) rotate(45deg); }
+    .aberto .abrir__linhas i:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+
+    .menu {
+      position: fixed; inset: 0; z-index: 1; background: var(--creme);
+      flex-direction: column; align-items: flex-start; justify-content: center; gap: 36px;
+      padding: 96px var(--gutter) 48px;
+      opacity: 0; visibility: hidden; transition: opacity 450ms var(--ease-saida), visibility 0s 450ms;
+    }
+    .aberto .menu { opacity: 1; visibility: visible; transition: opacity 450ms var(--ease-saida); }
+    .menu ul { flex-direction: column; gap: 6px; }
+    .menu ul a { font-family: var(--f-display); font-size: 2rem; }
+    .marca { position: relative; z-index: 2; }
+  }
+  @media (max-width: 420px) { .marca__nome { font-size: 0.7rem; } .marca__selo { width: 42px; } }
+</style>
+
+<script>
+  const topo = document.querySelector<HTMLElement>('[data-topo]')!;
+  const botao = document.querySelector<HTMLButtonElement>('[data-abrir]')!;
+  const onScroll = () => topo.classList.toggle('rolou', scrollY > 24);
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const fechar = () => {
+    topo.classList.remove('aberto');
+    botao.setAttribute('aria-expanded', 'false');
+    document.documentElement.style.overflow = '';
+  };
+  botao.addEventListener('click', () => {
+    const abrir = !topo.classList.contains('aberto');
+    topo.classList.toggle('aberto', abrir);
+    botao.setAttribute('aria-expanded', String(abrir));
+    document.documentElement.style.overflow = abrir ? 'hidden' : '';
+  });
+  topo.querySelectorAll('.menu a').forEach((a) => a.addEventListener('click', fechar));
+  addEventListener('keydown', (e) => e.key === 'Escape' && fechar());
+</script>

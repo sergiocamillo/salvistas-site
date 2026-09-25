@@ -1,0 +1,126 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+import Formulario from '../components/Formulario.astro';
+import fotoGeral from '../assets/img/capitulo-geral-2026.jpg';
+import { getConfiguracao } from '../lib/strapi';
+
+const cfg = await getConfiguracao();
+const valor = cfg?.valorSugeridoApadrinhamento ?? 25;
+const contas = cfg?.contas ?? [];
+const grupos = [
+  { titulo: 'Seminário', sub: 'Formação dos padres e irmãos', itens: contas.filter((c) => c.destino === 'seminario') },
+  { titulo: 'Convento', sub: 'Formação das irmãs', itens: contas.filter((c) => c.destino === 'convento') },
+].filter((g) => g.itens.length);
+---
+
+<Base title="Apoie" description={`Com R$ ${valor} por mês você se torna padrinho ou madrinha e sustenta a formação de seminaristas e irmãs salvistas.`}>
+  <Cabecalho rotulo="Associação Providência Santíssima" titulo="Ajude a formar quem vai <em>servir a Igreja</em> amanhã." lede={`Todo padre e toda irmã salvista foi formado com a ajuda de alguém. Com R$ ${valor} por mês, você e o seu grupo de oração sustentam essa formação.`}>
+    <a class="btn btn--carmim" href="#cadastro">Quero ser padrinho ou madrinha <span class="seta" aria-hidden="true">→</span></a>
+  </Cabecalho>
+
+  <figure class="faixa wrap" data-revela>
+    <Picture src={fotoGeral} formats={['avif', 'webp']} widths={[800, 1400, 2000]} sizes="(max-width: 1300px) 100vw, 1240px" alt="A família salvista reunida no V Capítulo Geral." />
+  </figure>
+
+  <section class="secao ajuda">
+    <div class="wrap ajuda__grade revela">
+      <div>
+        <p class="ajuda__n">R$ {valor}</p>
+        <h2>por mês já forma um consagrado</h2>
+      </div>
+      <ul>
+        <li><h3>Alimentação</h3><p>O dia a dia de quem vive no seminário e no convento.</p></li>
+        <li><h3>Estudos</h3><p>Filosofia, teologia e a formação humana e espiritual.</p></li>
+        <li><h3>Vestuário e casa</h3><p>O necessário para uma vida simples e dedicada.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="providencia">
+    <div class="wrap providencia__conteudo revela">
+      <p class="rotulo">Rezamos por você</p>
+      <p class="providencia__oracao">
+        Providência Santíssima do Eterno, Onipotente e Misericordiosíssimo Deus, que tudo tendes providenciado e providenciareis para o nosso bem;
+        providenciai em todas as nossas necessidades. Assim creio, assim espero. Seja sempre feita a vossa santíssima vontade. Amém.
+      </p>
+      <p class="providencia__nota">Oração rezada pela Fraternidade, pelos padrinhos e madrinhas.</p>
+    </div>
+  </section>
+
+  <section class="secao cadastro" id="cadastro">
+    <div class="wrap cadastro__grade">
+      <div class="revela">
+        <p class="rotulo">Cadastro</p>
+        <h2>Seja padrinho ou madrinha</h2>
+        <p class="lede">Deixe seus dados. Nossa equipe entra em contato para combinar a melhor forma de contribuir.</p>
+        {grupos.length > 0 && (
+          <div class="contas">
+            <h3>Prefere depositar direto?</h3>
+            <p>Envie o comprovante para <a href="mailto:escritorio@salvistas.com.br">escritorio@salvistas.com.br</a>, assim registramos sua doação.</p>
+            {grupos.map((g) => (
+              <div class="contas__grupo">
+                <h4>{g.titulo} <span>{g.sub}</span></h4>
+                <ul>
+                  {g.itens.map((c) => (
+                    <li><span>{c.banco}</span><span>Ag. {c.agencia} · C/C {c.conta}{c.operacao && ` · Op. ${c.operacao}`}</span></li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+      <Formulario
+        id="form-padrinho"
+        tipo="padrinho"
+        pedirTelefone
+        pedirCidade
+        rotuloMensagem="Quer deixar um recado?"
+        mensagemObrigatoria={false}
+        botao="Quero ajudar"
+        sucesso="Obrigado por abraçar esta obra! Nossa equipe vai entrar em contato com você. Deus o(a) abençoe."
+      />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .faixa { margin: 0 auto; border-radius: 10px; overflow: hidden; aspect-ratio: 21 / 8; opacity: 0; transition: opacity 1.4s var(--ease-saida); }
+  .faixa.in { opacity: 1; }
+  .faixa :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; }
+
+  .ajuda__grade { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
+  .ajuda__n { font-family: var(--f-display); font-size: clamp(4rem, 3rem + 5vw, 7.5rem); line-height: 0.9; color: var(--carmim); }
+  .ajuda h2 { margin-top: 12px; max-width: 12ch; }
+  .ajuda ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--linha-forte); }
+  .ajuda li { display: grid; grid-template-columns: 180px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--linha); align-items: baseline; }
+  .ajuda li h3 { font-size: 1.4rem; }
+  .ajuda li p { color: var(--marrom-2); }
+
+  .providencia { background: var(--noite); color: var(--creme); padding-block: clamp(88px, 12vw, 160px); text-align: center; }
+  .providencia__conteudo { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+  .providencia .rotulo { color: var(--ouro-claro); }
+  .providencia__oracao { font-family: var(--f-display); font-style: italic; font-size: clamp(1.5rem, 1.2rem + 1.3vw, 2.3rem); line-height: 1.45; max-width: 32ch; color: var(--ouro-luz); }
+  .providencia__nota { font-size: 0.88rem; color: rgba(244, 237, 225, 0.66); }
+
+  .cadastro__grade { display: grid; grid-template-columns: 0.9fr 1fr; gap: clamp(40px, 7vw, 110px); align-items: start; }
+  .cadastro h2 { margin: 18px 0 20px; }
+  .contas { margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--linha-forte); display: grid; gap: 22px; }
+  .contas h3 { font-size: 1.4rem; }
+  .contas > p { font-size: 0.93rem; color: var(--marrom-2); }
+  .contas a { color: var(--carmim); }
+  .contas h4 { font-family: var(--f-display); font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; }
+  .contas h4 span { font-family: var(--f-corpo); font-weight: 400; font-size: 0.85rem; color: var(--marrom-suave); margin-left: 8px; }
+  .contas ul { list-style: none; margin: 0; padding: 0; }
+  .contas li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--linha); font-size: 0.93rem; align-items: baseline; }
+  .contas li span:last-child { font-variant-numeric: tabular-nums; color: var(--marrom-2); text-align: right; }
+
+  @media (max-width: 860px) {
+    .ajuda__grade, .cadastro__grade { grid-template-columns: 1fr; }
+    .faixa { aspect-ratio: 4 / 3; }
+    .ajuda li { grid-template-columns: 1fr; gap: 6px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .faixa { opacity: 1; } }
+</style>

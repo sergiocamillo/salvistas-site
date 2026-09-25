@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_shared_conta_bancaria",
+  "info": {
+    "displayName": "Conta bancária",
+    "icon": "bank"
+  },
+  "options": {},
+  "attributes": {
+    "destino": {
+      "type": "enumeration",
+      "enum": [
+        "seminario",
+        "convento"
+      ],
+      "default": "seminario"
+    },
+    "banco": {
+      "type": "string",
+      "required": true
+    },
+    "agencia": {
+      "type": "string"
+    },
+    "conta": {
+      "type": "string"
+    },
+    "operacao": {
+      "type": "string"
+    }
+  }
+}

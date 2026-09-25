@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocos_pessoas",
+  "info": {
+    "displayName": "Pessoas",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "pessoas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pessoa.pessoa"
+    }
+  }
+}

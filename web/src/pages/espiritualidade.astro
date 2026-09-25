@@ -1,0 +1,166 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+import Fio from '../components/Fio.astro';
+import icone from '../assets/img/icone-nossa-senhora-de-pentecostes.jpg';
+import { getOracoes, getSantos } from '../lib/strapi';
+
+const [oracoes, santos] = await Promise.all([getOracoes(), getSantos()]);
+const patronos = santos.filter((s) => s.tipo === 'patrono');
+const baluartes = santos.filter((s) => s.tipo === 'baluarte');
+const saoJose = oracoes.filter((o) => /s[ãa]o jos[ée]|clemente|moribundos|agonizantes/i.test(o.titulo) && !/Pentecostes|Provid/.test(o.titulo));
+const principais = oracoes.filter((o) => !saoJose.includes(o));
+
+// Leitura do ícone (texto da Fraternidade, com pequenas correções de digitação).
+const leitura = [
+  { t: 'O fundo dourado', d: 'Na iconografia, o ouro é sinal da realidade celeste, da presença da glória de Deus. Essa presença envolve Maria, a Imaculada Conceição, a cheia de graça (cf. Lc 1,28).' },
+  { t: 'Maria elevada', d: 'Projetada acima dos apóstolos, quase fora do ícone, ela recorda o dogma da Assunção. As inscrições gregas junto à sua cabeça a chamam de Theotokos, Mãe de Deus.' },
+  { t: 'As três estrelas', d: 'Na testa e nos ombros, falam da virgindade perpétua de Maria: antes, durante e depois do parto de Jesus.' },
+  { t: 'A labareda', d: 'Acima de Maria arde o Espírito Santo (At 2,2-4). Dele saem línguas como de fogo que, por meio dela, se repartem sobre os apóstolos.' },
+  { t: 'Vermelho e azul', d: 'O manto vermelho mostra Maria repleta do Espírito. A túnica azul, a mesma cor dos apóstolos, é a condição humana, frágil, abraçada pela graça de Pentecostes.' },
+  { t: 'As mãos abertas', d: 'Erguidas em louvor e intercessão, como rezavam os primeiros cristãos. Os olhos voltados para o alto, a boca pequena de quem guarda tudo no coração, os ouvidos atentos à voz de Deus.' },
+];
+---
+
+<Base title="Espiritualidade" description="Nossa Senhora de Pentecostes, patronos, baluartes e orações da Fraternidade Jesus Salvador.">
+  <Cabecalho rotulo="Espiritualidade" titulo="Nascida do <em>Espírito Santo</em>" lede="Nossa espiritualidade é carismática, oracional e apostólica. Nasce do Espírito derramado no coração de cada irmão e irmã, e cresce no dom que cada um faz de si mesmo." />
+
+  <section class="secao pentecostes" id="pentecostes">
+    <div class="wrap pentecostes__grade">
+      <div class="pentecostes__icone" data-revela>
+        <Picture src={icone} formats={['avif', 'webp']} widths={[600, 1000]} sizes="(max-width: 900px) 90vw, 520px"
+          alt="Ícone de Nossa Senhora de Pentecostes com os apóstolos." />
+      </div>
+      <div class="pentecostes__texto">
+        <div class="revela">
+          <p class="rotulo">Nossa padroeira</p>
+          <h2>Nossa Senhora de Pentecostes</h2>
+          <p class="lede">
+            Um título dado por Deus ao coração do nosso fundador, em oração com alguns amigos, no início dos anos 90.
+          </p>
+          <blockquote>
+            <p>“Eu nunca encontrei escrito em algum lugar onde Nossa Senhora fosse invocada como Nossa Senhora de Pentecostes. Foi um momento em que minha alma exultou de alegria por essa inspiração.”</p>
+            <cite>Pe. Gilberto Maria Defina, sjs · Autobiografia</cite>
+          </blockquote>
+          <p>
+            A seu pedido, o ícone foi escrito pelo padre italiano Fúlvio Francesco Giuliano, PIME. O original está na capela maior
+            do Seminário Nossa Senhora de Pentecostes, e sua festa é celebrada em 17 de setembro, dia da fundação dos nossos Institutos.
+          </p>
+        </div>
+
+        <h3 class="leitura__titulo">Como ler o ícone</h3>
+        <ol class="leitura revela">
+          {leitura.map((l, i) => (
+            <li>
+              <span class="leitura__n">{String(i + 1).padStart(2, '0')}</span>
+              <div><h4>{l.t}</h4><p>{l.d}</p></div>
+            </li>
+          ))}
+        </ol>
+        <p class="pentecostes__inscricao">“E todos ficaram repletos do Espírito Santo.” <span>At 2,4</span></p>
+      </div>
+    </div>
+  </section>
+
+  <Fio />
+
+  <section class="secao santos" id="patronos">
+    <div class="wrap">
+      <div class="santos__cabeca revela">
+        <p class="rotulo">Patronos e baluartes</p>
+        <h2>Quem caminha <em>conosco</em></h2>
+        <p class="lede">Patronos são os protetores que invocamos todos os dias na oração comunitária. Baluartes são os alicerces: santos cujo exemplo nos mostra o caminho do estudo, do esforço e da missão.</p>
+      </div>
+      <ul class="patronos revela">
+        {patronos.map((s) => (
+          <li><p class="patronos__festa">{s.festa}</p><h3>{s.nome}</h3>{s.descricao && <p>{s.descricao}</p>}</li>
+        ))}
+      </ul>
+      <ul class="baluartes revela">
+        {baluartes.map((s) => (
+          <li><span class="baluartes__nome">{s.nome}</span><span class="baluartes__festa">{s.festa}</span></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao oracoes" id="oracoes">
+    <div class="wrap">
+      <div class="revela">
+        <p class="rotulo">Orações</p>
+        <h2>Reze conosco</h2>
+      </div>
+      <div class="oracoes__grade">
+        <ul class="oracoes__lista revela">
+          {principais.map((o) => (
+            <li><a href={`/oracoes/${o.slug}`}><span>{o.titulo}</span>{o.intencao && <small>{o.intencao}</small>}</a></li>
+          ))}
+        </ul>
+        {saoJose.length > 0 && (
+          <div class="revela">
+            <h3 class="oracoes__sub">Orações a São José</h3>
+            <ul class="oracoes__lista oracoes__lista--compacta">
+              {saoJose.map((o) => <li><a href={`/oracoes/${o.slug}`}><span>{o.titulo}</span></a></li>)}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .pentecostes__grade { display: grid; grid-template-columns: minmax(0, 0.8fr) 1fr; gap: clamp(40px, 7vw, 110px); align-items: start; }
+  .pentecostes__icone { position: sticky; top: 110px; border-radius: 999px 999px 10px 10px; overflow: hidden; box-shadow: 0 0 0 1px var(--ouro-claro), 0 40px 80px -30px rgba(58, 35, 29, 0.45);
+    opacity: 0; transform: translateY(24px); transition: opacity 1.3s var(--ease-saida), transform 1.3s var(--ease-saida); }
+  .pentecostes__icone.in { opacity: 1; transform: none; }
+  .pentecostes__icone :global(img) { width: 100%; height: auto; }
+  .pentecostes h2 { margin: 18px 0 22px; }
+  .pentecostes blockquote { margin: 32px 0; padding-left: 22px; border-left: 2px solid var(--ouro); }
+  .pentecostes blockquote p { font-family: var(--f-display); font-style: italic; font-size: 1.45rem; line-height: 1.4; color: var(--marrom-2); }
+  .pentecostes cite { display: block; margin-top: 12px; font-style: normal; font-size: 0.85rem; color: var(--marrom-suave); }
+  .pentecostes__texto p:not(.lede):not(.rotulo) { max-width: 60ch; }
+  .leitura__titulo { margin: 64px 0 8px; }
+  .leitura { list-style: none; margin: 0; padding: 0; }
+  .leitura li { display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--linha); align-items: baseline; }
+  .leitura__n { font-family: var(--f-inscricao); font-size: 0.85rem; color: var(--ouro-texto); letter-spacing: 0.08em; }
+  .leitura h4 { font-family: var(--f-display); font-size: 1.4rem; font-weight: 600; margin-bottom: 6px; }
+  .leitura p { color: var(--marrom-2); }
+  .pentecostes__inscricao { margin-top: 44px; font-family: var(--f-display); font-style: italic; font-size: 1.8rem; line-height: 1.3; color: var(--carmim); }
+  .pentecostes__inscricao span { font-family: var(--f-corpo); font-style: normal; font-size: 0.85rem; color: var(--marrom-suave); }
+
+  .santos { background: var(--creme-2); }
+  .santos__cabeca { display: flex; flex-direction: column; gap: 18px; margin-bottom: 56px; }
+  .santos__cabeca em { color: var(--carmim); }
+  .patronos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .patronos li { background: var(--creme); border-radius: 10px; padding: 30px 26px; display: flex; flex-direction: column; gap: 10px; }
+  .patronos__festa { font-family: var(--f-inscricao); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ouro-texto); }
+  .patronos h3 { font-size: 1.55rem; }
+  .patronos li p:last-child { font-size: 0.95rem; color: var(--marrom-2); }
+  .baluartes { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 40px; }
+  .baluartes li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--linha-forte); }
+  .baluartes__nome { font-family: var(--f-display); font-size: 1.3rem; }
+  .baluartes__festa { font-size: 0.85rem; color: var(--marrom-suave); white-space: nowrap; }
+
+  .oracoes h2 { margin: 18px 0 44px; }
+  .oracoes__grade { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .oracoes__lista { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--linha-forte); }
+  .oracoes__lista a { display: flex; flex-direction: column; gap: 4px; padding: 20px 36px 20px 0; border-bottom: 1px solid var(--linha); text-decoration: none; position: relative; transition: padding 500ms var(--ease-saida); }
+  .oracoes__lista a::after { content: '→'; position: absolute; right: 4px; top: 50%; translate: 0 -50%; transition: transform 500ms var(--ease-saida); }
+  .oracoes__lista a:hover { padding-left: 10px; }
+  .oracoes__lista a:hover::after { transform: translateX(4px); }
+  .oracoes__lista span { font-family: var(--f-display); font-size: 1.5rem; line-height: 1.2; }
+  .oracoes__lista small { font-size: 0.88rem; color: var(--marrom-suave); }
+  .oracoes__lista--compacta span { font-size: 1.2rem; }
+  .oracoes__lista--compacta a { padding-block: 13px; }
+  .oracoes__sub { margin-bottom: 16px; font-size: 1.35rem; }
+
+  @media (max-width: 1000px) { .patronos { grid-template-columns: 1fr 1fr; } .baluartes { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 860px) {
+    .pentecostes__grade, .oracoes__grade { grid-template-columns: 1fr; }
+    .pentecostes__icone { position: relative; top: 0; max-width: 380px; margin-inline: auto; }
+  }
+  @media (max-width: 560px) { .patronos, .baluartes { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .pentecostes__icone { opacity: 1; transform: none; } }
+</style>

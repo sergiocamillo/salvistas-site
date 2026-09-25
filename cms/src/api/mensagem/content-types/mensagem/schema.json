@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mensagens",
+  "info": {
+    "singularName": "mensagem",
+    "pluralName": "mensagens",
+    "displayName": "Mensagem",
+    "description": "Envios dos formulários do site"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tipo": {
+      "type": "enumeration",
+      "enum": [
+        "contato",
+        "vocacional-masculino",
+        "vocacional-feminino",
+        "leigos",
+        "juventude",
+        "padrinho",
+        "pedido-de-oracao"
+      ],
+      "required": true
+    },
+    "nome": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120
+    },
+    "email": {
+      "type": "email"
+    },
+    "telefone": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "cidade": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "mensagem": {
+      "type": "text",
+      "maxLength": 5000
+    },
+    "extra": {
+      "type": "json"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "nova",
+        "em-andamento",
+        "respondida",
+        "arquivada"
+      ],
+      "default": "nova"
+    }
+  }
+}

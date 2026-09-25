@@ -1,0 +1,117 @@
+---
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+import Formulario from '../components/Formulario.astro';
+import { getConfiguracao, getHorarios } from '../lib/strapi';
+
+const [cfg, horarios] = await Promise.all([getConfiguracao(), getHorarios()]);
+const locais = cfg?.locais ?? [];
+const mapa = (l: { endereco?: string; cidade?: string; cep?: string }) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([l.endereco, l.cidade, l.cep].filter(Boolean).join(', '))}`;
+const tel = (t?: string) => (t ? `tel:+55${t.replace(/\D/g, '')}` : undefined);
+---
+
+<Base title="Contato" description="Endereços, horários de missa, pedido de oração e contato com a Fraternidade Jesus Salvador.">
+  <Cabecalho rotulo="Contato" titulo="Venha nos <em>visitar</em>" lede="Nossas casas ficam na Zona Sul de São Paulo. As portas estão abertas para a missa, para a oração e para uma boa conversa." />
+
+  <section class="wrap locais revela">
+    {locais.map((l) => (
+      <article class="local">
+        <h2>{l.nome}</h2>
+        <p>{l.endereco}<br />{l.bairro}<br />{l.cidade}{l.cep && ` · CEP ${l.cep}`}</p>
+        <p class="local__contatos">
+          {l.telefone && <a href={tel(l.telefone)}>{l.telefone}</a>}
+          {l.email && <a href={`mailto:${l.email}`}>{l.email}</a>}
+        </p>
+        <a class="link-seta" href={l.mapaUrl ?? mapa(l)} target="_blank" rel="noopener">Como chegar <span aria-hidden="true">→</span></a>
+      </article>
+    ))}
+  </section>
+
+  {horarios.length > 0 && (
+    <section class="secao horarios">
+      <div class="wrap horarios__grade revela">
+        <div>
+          <p class="rotulo">Horários</p>
+          <h2>Missas e atividades</h2>
+        </div>
+        <ul>
+          {horarios.map((h) => (
+            <li>
+              <span class="horarios__quando">{h.quando}</span>
+              <span class="horarios__hora">{h.hora}</span>
+              <span class="horarios__o-que">{h.titulo}{h.local && <small>{h.local}</small>}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <section class="secao oracao" id="oracao">
+    <div class="wrap duas">
+      <div class="revela">
+        <p class="rotulo">Pedido de oração</p>
+        <h2>Conte sua intenção.</h2>
+        <p class="lede">Seu pedido será lembrado na oração da nossa comunidade. Se quiser, pode escrever só o primeiro nome.</p>
+      </div>
+      <Formulario
+        id="form-oracao"
+        tipo="pedido-de-oracao"
+        escuro
+        emailObrigatorio={false}
+        pedirCidade
+        rotuloMensagem="Sua intenção"
+        botao="Enviar pedido"
+        sucesso="Recebemos sua intenção e vamos rezar por você. Que o Senhor te abençoe e te guarde."
+      />
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap duas">
+      <div class="revela">
+        <p class="rotulo">Fale conosco</p>
+        <h2>Escreva para a gente</h2>
+        <p class="lede">Dúvidas, convites, imprensa ou qualquer outro assunto.</p>
+      </div>
+      <Formulario
+        id="form-contato"
+        tipo="contato"
+        pedirTelefone
+        botao="Enviar mensagem"
+        sucesso="Mensagem recebida. Respondemos o quanto antes. Deus te abençoe!"
+      />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .locais { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .local { background: var(--creme-2); border-radius: 10px; padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+  .local h2 { font-size: 1.7rem; max-width: 20ch; }
+  .local__contatos { display: flex; flex-direction: column; gap: 4px; }
+  .local__contatos a { color: var(--carmim); text-decoration: none; }
+  .local__contatos a:hover { text-decoration: underline; }
+
+  .horarios__grade { display: grid; grid-template-columns: 0.7fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .horarios h2 { margin-top: 18px; }
+  .horarios ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--linha-forte); }
+  .horarios li { display: grid; grid-template-columns: 1fr 90px 1.4fr; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--linha); align-items: baseline; }
+  .horarios__quando { font-weight: 600; }
+  .horarios__hora { font-family: var(--f-display); font-size: 1.6rem; color: var(--carmim); }
+  .horarios__o-que { display: flex; flex-direction: column; }
+  .horarios__o-que small { color: var(--marrom-suave); font-size: 0.86rem; }
+
+  .oracao { background: var(--noite); color: var(--creme); }
+  .oracao .rotulo { color: var(--ouro-claro); }
+  .oracao .lede { color: rgba(244, 237, 225, 0.8); }
+  .duas { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(40px, 7vw, 110px); align-items: start; }
+  .duas h2 { margin: 18px 0 20px; }
+
+  @media (max-width: 860px) {
+    .locais, .duas, .horarios__grade { grid-template-columns: 1fr; }
+    .horarios li { grid-template-columns: 1fr auto; }
+    .horarios__o-que { grid-column: 1 / -1; }
+  }
+</style>

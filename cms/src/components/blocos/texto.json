@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_blocos_texto",
+  "info": {
+    "displayName": "Texto",
+    "icon": "feather"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "conteudo": {
+      "type": "blocks"
+    }
+  }
+}
