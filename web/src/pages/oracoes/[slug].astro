@@ -1,17 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { getOracoes, type Oracao } from '../../lib/strapi';
+import { getOracao, getOracoes } from '../../lib/strapi';
 import { renderBlocks, plainText } from '../../lib/blocks';
 
-export async function getStaticPaths() {
-  const oracoes = await getOracoes();
-  return oracoes.map((o, i) => ({
-    params: { slug: o.slug },
-    props: { oracao: o, proxima: oracoes[(i + 1) % oracoes.length] },
-  }));
-}
-
-const { oracao, proxima } = Astro.props as { oracao: Oracao; proxima: Oracao };
+const oracao = await getOracao(Astro.params.slug ?? '');
+if (!oracao) return Astro.rewrite('/404');
+const oracoes = await getOracoes();
+const proxima = oracoes[(oracoes.findIndex((o) => o.slug === oracao.slug) + 1) % oracoes.length];
 ---
 
 <Base title={oracao.titulo} description={plainText(oracao.texto, 155)}>

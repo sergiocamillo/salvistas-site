@@ -1,8 +1,14 @@
-// Cliente mínimo da API do Strapi 5. Roda no build (site estático): quando alguém
-// publica no painel, um webhook dispara um novo build.
+// Cliente mínimo da API do Strapi 5. As páginas são geradas a cada visita; as respostas
+// ficam num cache curto em memória (CACHE_SEGUNDOS, padrão 60) para o site responder rápido
+// e o que for publicado no painel aparecer em até um minuto.
 
-const STRAPI_URL = (import.meta.env.STRAPI_URL ?? 'http://localhost:1337').replace(/\/$/, '');
-const TOKEN = import.meta.env.STRAPI_TOKEN;
+// Variáveis lidas na hora (process.env), não no build: o mesmo build serve qualquer ambiente.
+const env = (k: string): string | undefined => process.env[k] ?? (import.meta.env as Record<string, string | undefined>)[k];
+
+const STRAPI_URL = (env('STRAPI_URL') ?? 'http://localhost:1337').replace(/\/$/, '');
+const PUBLIC_STRAPI_URL = (env('PUBLIC_STRAPI_URL') ?? STRAPI_URL).replace(/\/$/, '');
+const TOKEN = env('STRAPI_TOKEN');
+const TTL = Number(env('CACHE_SEGUNDOS') ?? 60) * 1000;
 
 export type Media = {
   url: string;
@@ -71,23 +77,34 @@ export type Configuracao = {
   contas: { destino: 'seminario' | 'convento'; banco: string; agencia?: string; conta?: string; operacao?: string }[];
 };
 
+const cache = new Map<string, { em: number; dados: unknown }>();
+
 async function get<T>(path: string, params: Record<string, string> = {}): Promise<T | null> {
   const url = new URL(`${STRAPI_URL}/api/${path}`);
   for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
+  const chave = url.toString();
+  const guardado = cache.get(chave);
+  if (guardado && Date.now() - guardado.em < TTL) return guardado.dados as T | null;
+
   try {
     const res = await fetch(url, { headers: TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {} });
-    if (res.status === 404) return null;
+    if (res.status === 404) {
+      cache.set(chave, { em: Date.now(), dados: null });
+      return null;
+    }
     if (!res.ok) throw new Error(`${res.status} ${url}`);
-    return ((await res.json()) as { data: T }).data;
+    const dados = ((await res.json()) as { data: T }).data;
+    cache.set(chave, { em: Date.now(), dados });
+    return dados;
   } catch (e) {
-    // Sem CMS no ar, o site ainda gera: seções dinâmicas saem vazias em vez de quebrar o build.
+    // CMS fora do ar: serve a última versão conhecida; sem ela, a seção sai vazia em vez de quebrar a página.
     console.warn(`[strapi] ${(e as Error).message}`);
-    return null;
+    return (guardado?.dados as T | undefined) ?? null;
   }
 }
 
 export const mediaUrl = (m?: { url: string } | null) =>
-  !m ? undefined : m.url.startsWith('http') ? m.url : `${STRAPI_URL}${m.url}`;
+  !m ? undefined : m.url.startsWith('http') ? m.url : `${PUBLIC_STRAPI_URL}${m.url}`;
 
 export const getPosts = async (limit = 100) =>
   (await get<Post[]>('posts', {
@@ -96,6 +113,24 @@ export const getPosts = async (limit = 100) =>
     'populate[capa]': 'true',
     'populate[categoria]': 'true',
   })) ?? [];
+
+const primeiro = <T>(lista: T[] | null) => lista?.[0] ?? null;
+
+export const getPost = async (slug: string) =>
+  primeiro(await get<Post[]>('posts', { 'filters[slug][$eq]': slug, 'populate[capa]': 'true', 'populate[categoria]': 'true' }));
+
+export const getPostsDaCategoria = async (slug: string, limit = 100) =>
+  (await get<Post[]>('posts', {
+    'filters[categoria][slug][$eq]': slug,
+    'sort[0]': 'data:desc',
+    'pagination[pageSize]': String(limit),
+    'populate[capa]': 'true',
+    'populate[categoria]': 'true',
+  })) ?? [];
+
+export const getCategoria = async (slug: string) => primeiro(await get<Categoria[]>('categorias', { 'filters[slug][$eq]': slug }));
+
+export const getOracao = async (slug: string) => primeiro(await get<Oracao[]>('oracoes', { 'filters[slug][$eq]': slug }));
 
 export const getCategorias = async () => (await get<Categoria[]>('categorias', { 'sort[0]': 'nome:asc' })) ?? [];
 
@@ -106,7 +141,7 @@ export const getSantos = async () =>
   (await get<Santo[]>('santos', { 'sort[0]': 'ordem:asc', 'pagination[pageSize]': '100' })) ?? [];
 
 // STRAPI_RASCUNHOS=true (só em desenvolvimento) mostra missões ainda em rascunho, para revisar antes de publicar.
-const rascunhos: Record<string, string> = import.meta.env.STRAPI_RASCUNHOS === 'true' ? { status: 'draft' } : {};
+const rascunhos: Record<string, string> = env('STRAPI_RASCUNHOS') === 'true' ? { status: 'draft' } : {};
 
 export const getMissoes = async () =>
   (await get<Missao[]>('missoes', { 'sort[0]': 'ordem:asc', 'sort[1]': 'nome:asc', 'pagination[pageSize]': '200', 'filters[ativa][$eq]': 'true', ...rascunhos })) ?? [];
@@ -116,7 +151,7 @@ export const getHorarios = async () => (await get<Horario[]>('horarios', { 'sort
 export const getConfiguracao = async () =>
   get<Configuracao>('configuracao', { 'populate[locais]': 'true', 'populate[redes]': 'true', 'populate[contas]': 'true' });
 
-export const formEndpoint = `${(import.meta.env.PUBLIC_STRAPI_URL ?? STRAPI_URL).replace(/\/$/, '')}/api/mensagens`;
+export const formEndpoint = `${PUBLIC_STRAPI_URL}/api/mensagens`;
 
 export const dataLonga = (iso: string) =>
   new Date(`${iso}T12:00:00`).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });

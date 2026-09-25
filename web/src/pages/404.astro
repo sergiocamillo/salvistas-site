@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import Cabecalho from '../components/Cabecalho.astro';
+Astro.response.status = 404;
+---
+
+<Base title="Página não encontrada">
+  <Cabecalho rotulo="Página não encontrada" titulo="Este caminho <em>não existe</em>." lede="Talvez o endereço tenha mudado com o site novo. Comece pelo início ou procure nas notícias." centro>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+      <a class="btn" href="/">Voltar ao início</a>
+      <a class="btn btn--linha" href="/noticias">Ver notícias</a>
+    </div>
+  </Cabecalho>
+</Base>

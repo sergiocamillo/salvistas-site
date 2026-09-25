@@ -5,7 +5,7 @@ Nova versão do site da Fraternidade Jesus Salvador (https://salvistas.com.br).
 | Pasta | O que é |
 |---|---|
 | `cms/` | Strapi 5: painel, API, formulários e blog |
-| `web/` | Site em Astro, gerado a partir da API do Strapi |
+| `web/` | Site em Astro (modo servidor), lê a API do Strapi a cada visita, com cache de 60 s |
 | `docs/` | Análise, triagem do blog e design package |
 | `conteudo-original/` | Extração do WordPress atual e scripts de conversão |
 | `referencias/` | Fotos do V Capítulo Geral 2026 e logos |
@@ -26,9 +26,12 @@ cd web && cp .env.example .env && npm install && npm run dev
 Na primeira vez, o Strapi pede para criar o usuário administrador em `/admin`.
 
 ## Como o conteúdo flui
-- A equipe publica no painel do Strapi. O site é estático: em produção, um webhook do Strapi dispara um novo build do Astro.
+- A equipe publica no painel do Strapi e o site mostra a mudança em até 60 segundos, sem novo deploy.
 - Formulários (vocação, padrinho, pedido de oração, contato) gravam na coleção **Mensagem** do Strapi. O público só consegue enviar, nunca ler.
 - Posts vindos da triagem com decisão "revisar" e as missões (dados de 2019) entram como **rascunho** até a Fraternidade confirmar.
+
+## Publicar
+Passo a passo do Railway em [docs/04-deploy-railway.md](docs/04-deploy-railway.md).
 
 ## Regerar a importação
 ```bash

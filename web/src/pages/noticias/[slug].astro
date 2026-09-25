@@ -1,18 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PostCard from '../../components/PostCard.astro';
-import { getPosts, mediaUrl, dataLonga, type Post } from '../../lib/strapi';
+import { getPost, getPostsDaCategoria, mediaUrl, dataLonga } from '../../lib/strapi';
 import { renderBlocks, plainText } from '../../lib/blocks';
 
-export async function getStaticPaths() {
-  const posts = await getPosts();
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post, relacionados: posts.filter((p) => p.slug !== post.slug && p.categoria?.slug === post.categoria?.slug).slice(0, 3) },
-  }));
-}
-
-const { post, relacionados } = Astro.props as { post: Post; relacionados: Post[] };
+const post = await getPost(Astro.params.slug ?? '');
+if (!post) return Astro.rewrite('/404');
+const relacionados = post.categoria
+  ? (await getPostsDaCategoria(post.categoria.slug, 4)).filter((p) => p.slug !== post.slug).slice(0, 3)
+  : [];
 const capa = post.capa?.formats?.large ?? post.capa;
 // A capa costuma repetir a primeira imagem do texto: não mostra duas vezes.
 const conteudo = post.conteudo.filter((b, i) => !(i < 3 && b.type === 'image' && b.image?.hash === post.capa?.hash));
